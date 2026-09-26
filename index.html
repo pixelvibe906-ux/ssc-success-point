@@ -839,6 +839,7 @@ h1 {
         </div>
         <div class="modal-grid">
             <button class="modal-grid-btn" onclick="selectFromModal('my-notes-view')">📝 My Notes</button>
+            <button class="modal-grid-btn" onclick="selectFromModal('account-name-view')" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3)); border-color: #6366f1;">👤 Account Name & Notes</button>
         </div>
     </div>
 </div>
@@ -978,6 +979,29 @@ h1 {
                 <li><strong>Others ড্যাশবোর্ড:</strong> এখান থেকে হাজিরা খাতা এবং লাইভ ডিজিটাল ঘড়ি ও এক্সাম কাউন্টডাউন দেখতে পাবে।</li>
                 <li><strong>থিম পরিবর্তন:</strong> নিচের ফ্লোটিং বাটন থেকে যেকোনো সময় চমৎকার থিম বদলে নিতে পারো।</li>
             </ul>
+        </div>
+    </div>
+
+    <!-- অ্যাকাউন্ট নেম ও নিজের নোট দেখার ড্যাশবোর্ড ভিউ -->
+    <div id="account-name-view" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>Account Name & Personal Notes</h1>
+        <p style="color: var(--text-sub); font-size: 0.95rem; font-weight: 600; margin-bottom: 18px;">আপনার অ্যাকাউন্ট নেকনেম সেট করুন এবং শুধুমাত্র আপনার সেভ করা নোটগুলো দেখুন:</p>
+        
+        <div class="hover-card" style="border-left-color: #6366f1;">
+            <h3 style="color: #818cf8; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">নেকনেম (Nickname) সেট করুন</h3>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <input type="text" id="userNicknameInput" class="sidebar-search-input" placeholder="আপনার নেকনেম লিখুন..." style="flex: 1; min-width: 200px;">
+                <button class="save-note-btn" onclick="playSound(); saveNickname()" style="float: none; margin-top: 0;">নেম সেভ করো</button>
+            </div>
+            <div id="displayCurrentNickname" style="margin-top: 10px; font-size: 0.95rem; color: #34d399; font-weight: bold;"></div>
+        </div>
+
+        <div class="hover-card" style="border-left-color: #ec4899; margin-top: 20px;">
+            <h3 style="color: #f472b6; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">আমার সেভ করা নোটসমূহ (প্রাইভেট)</h3>
+            <div id="myPersonalNotesList" style="color: var(--text-sub); font-size: 0.95rem; font-weight: 600; line-height: 1.8;">
+                কোনো নোট সেভ করা নেই।
+            </div>
         </div>
     </div>
 
@@ -1687,6 +1711,12 @@ h1 {
           .then((result) => {
             const user = result.user;
             document.getElementById('userInfo').innerText = "স্বাগতম, " + user.displayName + "!";
+            
+            // অটোমেটিক লোকালস্টোরেজে ইউজার ইমেইল ও নাম সেট করা
+            localStorage.setItem('portal_logged_email', user.email);
+            if(!localStorage.getItem('portal_user_nickname')) {
+                localStorage.setItem('portal_user_nickname', user.displayName);
+            }
             playSound();
           })
           .catch((error) => {
@@ -1858,7 +1888,6 @@ function openSingleNoteInterface(title, key) {
     let saved = localStorage.getItem(key);
     textarea.value = saved ? saved : "";
     
-    // ভিউ পরিবর্তন করার সময় হিস্ট্রি পুশ করা
     history.pushState({ view: 'single-note-interface' }, '', '');
     
     document.querySelectorAll('.subject-view').forEach(el => el.style.display = 'none');
@@ -1871,6 +1900,62 @@ function saveActiveSingleNote() {
     if (activeSingleNoteKey) {
         localStorage.setItem(activeSingleNoteKey, textarea.value);
         alert("নোট সফলভাবে সেভ করা হয়েছে!");
+    }
+}
+
+// নেকনেম সেভ করার ফাংশন
+function saveNickname() {
+    let nick = document.getElementById('userNicknameInput').value.trim();
+    if(nick) {
+        localStorage.setItem('portal_user_nickname', nick);
+        alert("নেকনেম সফলভাবে সেভ করা হয়েছে!");
+        loadAccountData();
+    } else {
+        alert("দয়া করে একটি নাম লিখুন!");
+    }
+}
+
+// অ্যাকাউন্ট ও নিজের সেভ করা নোট লোড করার ফাংশন
+function loadAccountData() {
+    let nick = localStorage.getItem('portal_user_nickname');
+    let displayDiv = document.getElementById('displayCurrentNickname');
+    let inputField = document.getElementById('userNicknameInput');
+    
+    if(nick) {
+        displayDiv.innerText = "বর্তমান নেকনেম: " + nick;
+        inputField.value = nick;
+    } else {
+        displayDiv.innerText = "কোনো নেকনেম সেট করা নেই।";
+    }
+
+    // শুধুমাত্র ইউজারের সেভ করা নোটগুলো ফিল্টার করে দেখানো
+    let notesListContainer = document.getElementById('myPersonalNotesList');
+    let allKeys = [...banglaProseList, ...banglaPoetryList].map(i => i.key);
+    allKeys.push('note_bangla2_grammar');
+    
+    let savedNotesHTML = "";
+    let foundAny = false;
+
+    allKeys.forEach(key => {
+        let val = localStorage.getItem(key);
+        if(val && val.trim() !== "") {
+            foundAny = true;
+            // সুন্দর করে নাম বের করার চেষ্টা
+            let titleName = key;
+            let foundObj = [...banglaProseList, ...banglaPoetryList].find(i => i.key === key);
+            if(foundObj) titleName = foundObj.name;
+            else if(key === 'note_bangla2_grammar') titleName = "বাংলা ২য় পত্র ব্যাকরণ";
+
+            savedNotesHTML += `<div style="background: var(--glass-card); padding: 10px; border-radius: 8px; margin-bottom: 8px; border: 1px solid var(--glass-border);">
+                <strong style="color: #38bdf8;">${titleName}:</strong> <p style="color: var(--text-main); margin-top: 4px; white-space: pre-wrap;">${val}</p>
+            </div>`;
+        }
+    });
+
+    if(foundAny) {
+        notesListContainer.innerHTML = savedNotesHTML;
+    } else {
+        notesListContainer.innerHTML = "আপনার কোনো নোট সেভ করা নেই।";
     }
 }
 
@@ -1894,14 +1979,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
     renderBangla1Cards();
     renderAttendanceTable();
+    loadAccountData();
     
-    // ইনিশিয়াল স্টেট পুশ
     history.replaceState({ view: 'home-view' }, '', '');
 });
 
 // ব্যাক বাটন বা অ্যারো বাটনের জন্য হ্যান্ডলার
 window.addEventListener('popstate', (event) => {
-    // কোনো মডাল খোলা থাকলে প্রথমে তা বন্ধ করবে
     const modals = document.querySelectorAll('.modal-overlay');
     let modalClosed = false;
     modals.forEach(m => {
@@ -1960,6 +2044,11 @@ function showAttendance() {
 
 function showClockCountdown() {
     switchView('clock-countdown-view');
+}
+
+function showAccountNameView() {
+    loadAccountData();
+    switchView('account-name-view');
 }
 
 function switchView(viewId, e, isPop = false) {
@@ -2038,6 +2127,8 @@ function selectFromModal(viewId) {
     closeSubjectModal();
     if (viewId === 'my-notes-view') {
         showMyNotes();
+    } else if (viewId === 'account-name-view') {
+        showAccountNameView();
     }
 }
 
