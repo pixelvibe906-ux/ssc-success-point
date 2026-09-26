@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="default">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSC Success Point পাঠ্যসূচি ও মানবণ্টন ২০২৬</title>
+<style>
+/* থিম কালার ভেরিয়েবল */
+:root[data-theme="default"] {
+    --bg-gradient: linear-gradient(-45deg, #0f172a, #1e1b4b, #2e1065, #0369a1, #0f172a);
+    --text-main: #f8fafc;
+    --text-sub: #cbd5e1;
+    --glass-bg: rgba(15, 23, 42, 0.92);
+    --glass-card: rgba(30, 41, 59, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --sidebar-bg: rgba(15, 23, 42, 0.92);
+}
+:root[data-theme="dark"] {
+    --bg-gradient: linear-gradient(135deg, #000000, #111111, #050505);
+    --text-main: #ffffff;
+    --text-sub: #a1a1aa;
+    --glass-bg: rgba(9, 9, 11, 0.95);
+    --glass-card: rgba(24, 24, 27, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --sidebar-bg: rgba(9, 9, 11, 0.95);
+}
+:root[data-theme="light"] {
+    --bg-gradient: linear-gradient(135deg, #f8fafc, #e2e8f0, #cbd5e1);
+    --text-main: #0f172a;
+    --text-sub: #475569;
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-card: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --sidebar-bg: rgba(255, 255, 255, 0.95);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'SolaimanLipi', 'Kalpurush', 'Hind Siliguri', 'Segoe UI', Tahoma, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    background: var(--bg-gradient);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: var(--text-main);
+    min-height: 100vh;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+/* ফ্লোটিং একশন বাটন গ্রুপ */
+.floating-action-group {
+    position: fixed;
+    bottom: 15px;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 2000;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.floating-action-group.hidden {
+    transform: translateY(120px);
+    opacity: 0;
+    pointer-events: none;
+}
+.floating-btn {
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(99, 102, 241, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+.floating-btn:hover {
+    transform: scale(1.05) translateY(-2px);
+}
+.scroll-top-btn {
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding: 0;
+    display: none;
+    align-self: flex-end;
+}
+/* মোবাইল হেডার */
+.mobile-header {
+    display: flex;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    padding: 12px 15px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid var(--glass-border);
+    justify-content: space-between;
+    align-items: center;
+}
+.mobile-header h3 {
+    font-size: 1rem;
+    color: var(--text-main);
+    letter-spacing: 0.5px;
+    font-weight: 800;
+}
+.menu-toggle {
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* ডান দিকের উপরে গোল সেটিংস বাটন স্টাইল - একটু নিচে নামানো হয়েছে */
+.top-right-setting-btn {
+    position: fixed;
+    top: 75px;
+    right: 15px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    color: var(--text-main);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    z-index: 2500;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.top-right-setting-btn:hover {
+    transform: scale(1.1) rotate(45deg);
+    border-color: #6366f1;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3));
+}
+
+/* সাইডবার */
+.sidebar {
+    width: 280px;
+    background: var(--sidebar-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-right: 1px solid var(--glass-border);
+    padding: 20px 12px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 15px 0 35px rgba(0, 0, 0, 0.3);
+    z-index: 1500;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+}
+@media (min-width: 900px) {
+    .sidebar { transform: translateX(0) !important; }
+    .mobile-header { display: none; }
+    .main-content { margin-left: 280px; padding: 40px; }
+}
+@media (max-width: 899px) {
+    .sidebar { transform: translateX(-100%); width: 280px; }
+    .sidebar.open { transform: translateX(0); }
+    .main-content { margin-left: 0; padding: 15px !important; }
+}
+.sidebar::-webkit-scrollbar { width: 5px; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(100, 100, 100, 0.25); border-radius: 10px; }
+.sidebar-school-title {
+    font-size: 1.1rem;
+    background: linear-gradient(90deg, #818cf8, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+    padding-left: 8px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+.sidebar-school-sub {
+    font-size: 0.78rem;
+    color: var(--text-sub);
+    margin-bottom: 15px;
+    padding-left: 8px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+.sidebar-widget {
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 12px;
+}
+.sidebar-widget h4 {
+    font-size: 0.85rem;
+    color: #93c5fd;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+}
+.sidebar-search-input {
+    width: 100%;
+    padding: 8px 10px;
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: var(--text-main);
+    font-size: 0.88rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.sidebar-search-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+.sidebar h2 {
+    font-size: 0.88rem;
+    color: #f472b6;
+    margin: 12px 0 8px 8px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+.sidebar ul { list-style: none; }
+.sidebar ul li { margin-bottom: 6px; }
+.sidebar ul li button {
+    width: 100%;
+    text-align: left;
+    padding: 9px 12px;
+    border: 1px solid transparent;
+    background: var(--glass-card);
+    border-radius: 10px;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+.sidebar ul li button:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+    color: var(--text-main);
+    transform: translateX(6px);
+    border-color: var(--glass-border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.sidebar ul li button.active {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.95), rgba(236, 72, 153, 0.95));
+    color: #ffffff;
+    font-weight: 800;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    z-index: 1400;
+}
+.main-content {
+    max-width: 1150px;
+    transition: all 0.3s ease;
+}
+/* কার্ড ও ডিজাইন */
+.card {
+    background: var(--glass-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, color 0.4s ease;
+}
+@media (min-width: 900px) {
+    .card { padding: 35px; }
+}
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 5px;
+    background: linear-gradient(90deg, #6366f1, #ec4899, #06b6d4, #10b981);
+}
+.hover-card {
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    border-left: 5px solid #6366f1;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 20px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+@media (min-width: 900px) {
+    .hover-card { padding: 22px; }
+}
+.hover-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
+    border-left-width: 8px;
+}
+h1 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--glass-border);
+    font-weight: 900;
+}
+@media (min-width: 900px) {
+    h1 { font-size: 2rem; }
+}
+.subject-view { display: none; }
+.animate-view {
+    animation: floatUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes floatUp {
+    0% { opacity: 0; transform: translateY(25px) scale(0.97); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+/* স্ট্যাটস গ্রিড */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+@media (min-width: 650px) {
+    .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; }
+}
+.stat-card {
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    padding: 16px 12px;
+    border-radius: 14px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: #6366f1;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.stat-num {
+    font-size: 1.6rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, #6366f1, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@media (min-width: 900px) {
+    .stat-num { font-size: 1.9rem; }
+}
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 6px;
+    font-weight: 700;
+}
+/* সিলেবাস গ্রিড */
+.syllabus-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+@media (min-width: 768px) {
+    .syllabus-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.syllabus-box {
+    background: var(--glass-card);
+    border-radius: 14px;
+    padding: 18px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+@media (min-width: 900px) {
+    .syllabus-box { padding: 22px; }
+}
+.syllabus-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+.syllabus-box.half-yearly { border-top: 5px solid #10b981; }
+.syllabus-box.annual { border-top: 5px solid #f59e0b; }
+.syllabus-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+.syllabus-box.half-yearly .syllabus-badge {
+    background: rgba(16, 185, 129, 0.18);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+}
+.syllabus-box.annual .syllabus-badge {
+    background: rgba(245, 158, 11, 0.18);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.35);
+}
+.syllabus-list {
+    list-style: none;
+    line-height: 1.8;
+    color: var(--text-sub);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+@media (min-width: 900px) {
+    .syllabus-list { font-size: 0.98rem; }
+}
+.syllabus-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    word-break: break-word;
+}
+.syllabus-list li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: #f472b6;
+    font-size: 0.8rem;
+    top: 2px;
+}
+/* স্কুল হেডার বড় বক্স */
+.school-header-box {
+    text-align: center;
+    padding: 25px 15px;
+    background: var(--glass-card);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+}
+@media (min-width: 900px) {
+    .school-header-box { padding: 35px 20px; }
+}
+.school-header-box:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.school-logo {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: inline-block;
+    background: var(--glass-card);
+    padding: 15px;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    transition: transform 0.4s ease;
+}
+@media (min-width: 900px) {
+    .school-logo { font-size: 3rem; padding: 18px; }
+}
+.school-header-box:hover .school-logo {
+    transform: rotate(10deg) scale(1.1);
+}
+.school-title {
+    font-size: 1.7rem;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    background: linear-gradient(90deg, #6366f1, #ec4899, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+}
+@media (min-width: 900px) {
+    .school-title { font-size: 2.2rem; }
+}
+.school-meta {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+    font-weight: 700;
+}
+@media (min-width: 900px) {
+    .school-meta { gap: 12px; font-size: 0.95rem; }
+}
+.school-badge {
+    background: var(--glass-card);
+    padding: 5px 12px;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+.school-badge:hover {
+    transform: translateY(-2px);
+}
+.notice-item {
+    padding: 12px 14px;
+    background: var(--glass-card);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border-left: 5px solid #ec4899;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+@media (min-width: 650px) {
+    .notice-item { flex-direction: row; justify-content: space-between; align-items: center; gap: 10px; padding: 14px 18px; }
+}
+.notice-item:hover {
+    transform: translateX(5px);
+    border-left-width: 8px;
+}
+.notice-date {
+    font-size: 0.82rem;
+    background: rgba(236, 72, 153, 0.2);
+    color: #f472b6;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 800;
+    align-self: flex-start;
+}
+@media (min-width: 650px) {
+    .notice-date { align-self: auto; }
+}
+.notes-subject-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+@media (min-width: 900px) {
+    .notes-subject-grid { gap: 18px; }
+}
+.notes-subject-card {
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--text-main);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    font-weight: 700;
+}
+@media (min-width: 900px) {
+    .notes-subject-card { padding: 22px; }
+}
+.notes-subject-card:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(236, 72, 153, 0.25));
+    transform: translateY(-6px) scale(1.02);
+    border-color: #6366f1;
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.2);
+}
+.chapter-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+.chapter-note-box {
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+@media (min-width: 900px) {
+    .chapter-note-box { padding: 18px; }
+}
+.chapter-note-box h4 {
+    font-size: 1rem;
+    color: #38bdf8;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+.chapter-textarea {
+    width: 100%;
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: var(--text-main);
+    padding: 12px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    min-height: 100px;
+    resize: vertical;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.chapter-textarea:focus {
+    border-color: #ec4899;
+    box-shadow: 0 0 12px rgba(236, 72, 153, 0.3);
+}
+.save-note-btn {
+    background: linear-gradient(135deg, #10b981, #06b6d4);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 10px;
+    float: right;
+    transition: all 0.3s ease;
+}
+.save-note-btn:hover {
+    opacity: 0.95;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+}
+/* টেবিল স্টাইল */
+.table-responsive-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-main);
+    min-width: 450px;
+}
+.attendance-table th, .attendance-table td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+@media (min-width: 900px) {
+    .attendance-table th, .attendance-table td { padding: 14px; font-size: 0.98rem; }
+}
+.attendance-table th {
+    color: #38bdf8;
+    font-weight: 800;
+}
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+.status-present {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    display: inline-block;
+}
+.status-absent {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    display: inline-block;
+}
+/* মডাল */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+.modal-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 550px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 20px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+@media (min-width: 900px) {
+    .modal-card { padding: 25px; }
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--glass-border);
+}
+.modal-header h3 {
+    font-size: 1.15rem;
+    background: linear-gradient(90deg, #818cf8, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}
+.close-btn {
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    font-size: 1.1rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 800;
+}
+.close-btn:hover { background: rgba(236, 72, 153, 0.5); transform: rotate(90deg); }
+.modal-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+}
+@media (min-width: 650px) {
+    .modal-grid { gap: 12px; }
+}
+.modal-grid-btn {
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    padding: 12px;
+    border-radius: 10px;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.modal-grid-btn:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3));
+    border-color: #6366f1;
+    transform: translateY(-3px);
+}
+.back-to-notes-btn {
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 18px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.back-to-notes-btn:hover { transform: translateX(-3px); }
+</style>
+</head>
+<body>
+
+<audio id="clickSound" src="click.mp3" preload="auto"></audio>
+
+<!-- ডান দিকের উপরে গোল সেটিংস বাটন -->
+<button class="top-right-setting-btn" onclick="playSound(); openSubjectModal();" title="Settings / My Notes">
+    ⚙️
+</button>
+
+<!-- ফ্লোটিং একশন বাটন গ্রুপ -->
+<div class="floating-action-group" id="floatingActionGroup">
+    <!-- ব্যাক করার জন্য নতুন অ্যারো বাটন -->
+    <button class="floating-btn" onclick="playSound(); goBackState();" title="Back / পূর্বের পেজে যান" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">⬅</button>
+    <button class="floating-btn scroll-top-btn" id="scrollTopBtn" onclick="playSound(); scrollToTop();" title="উপরে যান">↑</button>
+    <button class="floating-btn" onclick="playSound(); showMyNotes();" title="My Notes" style="background: linear-gradient(135deg, #ec4899, #818cf8);">Notes</button>
+    <button class="floating-btn" onclick="playSound(); showOthers();" title="Others" style="background: linear-gradient(135deg, #3b82f6, #10b981);">Others</button>
+</div>
+
+<!-- মোবাইল হেডার -->
+<div class="mobile-header">
+    <h3>SSC SUCCESS POINT</h3>
+    <button class="menu-toggle" onclick="playSound(); toggleSidebar();">Menu</button>
+</div>
+
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<!-- বিষয় সিলেক্টর মডাল -->
+<div class="modal-overlay" id="subjectModal" onclick="closeModalOnOutsideClick(event, 'subjectModal')">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>Settings Option</h3>
+            <button class="close-btn" onclick="playSound(); closeSubjectModal();">×</button>
+        </div>
+        <div class="modal-grid">
+            <button class="modal-grid-btn" onclick="selectFromModal('my-notes-view')">📝 My Notes</button>
+        </div>
+    </div>
+</div>
+
+<!-- রুটিন মডাল -->
+<div class="modal-overlay" id="routineModal" onclick="closeModalOnOutsideClick(event, 'routineModal')">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>আজকের স্টাডি রুটিন</h3>
+            <button class="close-btn" onclick="playSound(); closeRoutineModal();">×</button>
+        </div>
+        <ul class="syllabus-list" style="display: flex; flex-direction: column; gap: 12px;">
+            <li><input type="checkbox" style="accent-color: #ec4899; margin-right: 8px; transform: scale(1.2);"> সকালে ঘুম থেকে উঠে গণিত প্র্যাকটিস</li>
+            <li><input type="checkbox" style="accent-color: #ec4899; margin-right: 8px; transform: scale(1.2);"> দুপুরে ইংরেজি গ্রামার ও ভোকাবুলারি</li>
+            <li><input type="checkbox" style="accent-color: #ec4899; margin-right: 8px; transform: scale(1.2);"> বিকেলে বিজ্ঞান বিষয় ও নোট তৈরি</li>
+            <li><input type="checkbox" style="accent-color: #ec4899; margin-right: 8px; transform: scale(1.2);"> রাতে বাংলা ও আইসিটি পড়া</li>
+        </ul>
+    </div>
+</div>
+
+<!-- সাইডবার -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-school-title">SSC Success Point</div>
+    <div class="sidebar-school-sub">ডিজিটাল স্টাডি পোর্টাল ২০২৬</div>
+    <div class="sidebar-widget">
+        <h4>বিষয় খুঁজুন</h4>
+        <input type="text" id="liveSearchInput" class="sidebar-search-input" placeholder="নাম লিখুন..." onkeyup="filterSidebarMenu()">
+    </div>
+    <h2>Menu & Subjects</h2>
+    <ul id="sidebarMenuList">
+        <li><button id="btn-home-view" class="active" onclick="playSound(); showHome(event)">হোম পেজ</button></li>
+        <li><button id="btn-my-notes-view" onclick="playSound(); showMyNotes(event)" style="color: #f472b6; font-weight: bold;">My Notes</button></li>
+        <li><button id="btn-others-view" onclick="playSound(); showOthers(event)" style="color: #38bdf8; font-weight: bold;">Others</button></li>
+        <li><button id="btn-bangla1" onclick="playSound(); showSubject('bangla1', event)">১. বাংলা ১ম পত্র</button></li>
+        <li><button id="btn-bangla2" onclick="playSound(); showSubject('bangla2', event)">২. বাংলা ২য় পত্র</button></li>
+        <li><button id="btn-english1" onclick="playSound(); showSubject('english1', event)">৩. ইংরেজি ১ম পত্র</button></li>
+        <li><button id="btn-english2" onclick="playSound(); showSubject('english2', event)">৪. ইংরেজি ২য় পত্র</button></li>
+        <li><button id="btn-math" onclick="playSound(); showSubject('math', event)">৫. গণিত</button></li>
+        <li><button id="btn-higher-math" onclick="playSound(); showSubject('higher-math', event)">৬. উচ্চতর গণিত</button></li>
+        <li><button id="btn-physics" onclick="playSound(); showSubject('physics', event)">৭. পদার্থবিজ্ঞান</button></li>
+        <li><button id="btn-chemistry" onclick="playSound(); showSubject('chemistry', event)">৮. রসায়ন</button></li>
+        <li><button id="btn-biology" onclick="playSound(); showSubject('biology', event)">৯. জীববিজ্ঞান</button></li>
+        <li><button id="btn-bgs" onclick="playSound(); showSubject('bgs', event)">১০. বাংলাদেশ ও বিশ্বপরিচয়</button></li>
+        <li><button id="btn-islam" onclick="playSound(); showSubject('islam', event)">১১. ধর্ম ও নৈতিক শিক্ষা</button></li>
+        <li><button id="btn-ict" onclick="playSound(); showSubject('ict', event)">১২. তথ্য ও যোগাযোগ প্রযুক্তি</button></li>
+        <li><button id="btn-history" onclick="playSound(); showSubject('history', event)">১৩. ইতিহাস ও বিশ্বসভ্যতা</button></li>
+        <li><button id="btn-geography" onclick="playSound(); showSubject('geography', event)">১৪. ভূগোল ও পরিবেশ</button></li>
+        <li><button id="btn-civics" onclick="playSound(); showSubject('civics', event)">১৫. পৌরনীতি ও নাগরিকতা</button></li>
+        <li><button id="btn-economics" onclick="playSound(); showSubject('economics', event)">১৬. অর্থনীতি</button></li>
+        <li><button id="btn-accounting" onclick="playSound(); showSubject('accounting', event)">১৭. হিসাববিজ্ঞান</button></li>
+        <li><button id="btn-finance" onclick="playSound(); showSubject('finance', event)">১৮. ফিন্যান্স ও ব্যাংকিং</button></li>
+        <li><button id="btn-business" onclick="playSound(); showSubject('business', event)">১৯. ব্যবসায় উদ্যোগ</button></li>
+        <li><button id="btn-agriculture" onclick="playSound(); showSubject('agriculture', event)">২০. কৃষি শিক্ষা</button></li>
+    </ul>
+</div>
+
+<!-- মূল কন্টেন্ট এরিয়া -->
+<div class="main-content">
+    <!-- হোম পেজ -->
+    <div id="home-view" class="subject-view card animate-view" style="display: block;">
+        <div class="school-header-box">
+            <div class="school-logo">🚀</div>
+            <div class="school-title">SSC SUCCESS POINT</div>
+            <div class="school-meta">
+                <span class="school-badge">লক্ষ্য: এস এস সি ২০২৬</span>
+                <span class="school-badge">স্মার্ট লার্নিং প্ল্যাটফর্ম</span>
+                <span class="school-badge">সফলতার নতুন দিগন্ত</span>
+            </div>
+        </div>
+        
+        <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="stat-card">
+                <div class="stat-num">২৫ জন</div>
+                <div class="stat-label">মোট শিক্ষার্থী</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">নিয়মিত</div>
+                <div class="stat-label">শিক্ষার্থী স্ট্যাটাস</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">২০+</div>
+                <div class="stat-label">ঐচ্ছিক বিষয় ও পসিবিলিটি</div>
+            </div>
+        </div>
+        
+        <div class="hover-card" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(236, 72, 153, 0.15)); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <span style="font-size: 1.8rem;">🌟</span>
+                <h2 style="font-size: 1.25rem; background: linear-gradient(90deg, #38bdf8, #f472b6, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; letter-spacing: 0.5px;">নিজেকে ছাড়িয়ে যাওয়ার অদম্য প্রয়াস</h2>
+            </div>
+            <p style="color: var(--text-main); line-height: 1.8; font-size: 0.98rem; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                "স্বপ্ন সেটা নয় যা আমরা ঘুমিয়ে দেখি, স্বপ্ন সেটাই যা পূরণের তীব্র বাসনা আমাদের ঘুমাতে দেয় না।" এসএসসি সফলতার এই যাত্রায় প্রতিটি সেকেন্ড মূল্যবান। তোমার মেধা আর সঠিক দিকনির্দেশনা মিলে তৈরি হবে এক নতুন ইতিহাস। বিশ্বাস রাখো নিজের ওপর, কারণ জয় তোমার জন্যই অপেক্ষা করছে!
+            </p>
+        </div>
+
+        <div class="hover-card" style="border-left-color: #38bdf8;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <span style="font-size: 1.5rem;">🔥</span>
+                <h2 style="color: #38bdf8; font-size: 1.15rem; font-weight: 800;">প্রতিদিনের ছোট্ট পদক্ষেপে বড় অর্জন</h2>
+            </div>
+            <p style="color: var(--text-sub); line-height: 1.7; font-size: 0.95rem; font-weight: 600;">
+                কঠিন সময় বা পড়াশোনার চাপ তোমাকে কখনোই থামিয়ে দিতে পারবে না যদি তোমার লক্ষ্য স্পষ্ট থাকে। প্রতিদিন নিয়মিত রুটিন মেনে পড়ালেখা করো, নিজের নোট তৈরি করো এবং আত্মবিশ্বাসী থাকো। তোমার সফলতার গল্পটা তোমাকেই লিখতে হবে!
+            </p>
+        </div>
+
+        <div class="hover-card" style="border-left-color: #ec4899;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                <span style="font-size: 1.5rem;">📌</span>
+                <h2 style="color: #f472b6; font-size: 1.15rem; font-weight: 800;">পরামর্শ ও গুরুত্বপূর্ণ আপডেট</h2>
+            </div>
+            <div class="notice-item">
+                <span>নবম শ্রেণির অর্ধবার্ষিক পরীক্ষার নতুন রুটিন ও প্রস্তুতিমূলক গাইডলাইন প্রকাশিত হয়েছে।</span>
+                <span class="notice-date">২০ মে ২০২৬</span>
+            </div>
+            <div class="notice-item">
+                <span>স্মার্ট স্টাডি এবং প্র্যাকটিস সেশনের সময়সূচি আপডেট করা হয়েছে।</span>
+                <span class="notice-date">১৫ মে ২০২৬</span>
+            </div>
+        </div>
+
+        <div class="hover-card" style="border-left-color: #10b981; margin-top: 20px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <span style="font-size: 1.5rem;">💡</span>
+                <h2 style="color: #34d399; font-size: 1.15rem; font-weight: 800;">পোর্টাল গাইডলাইন ও ব্যবহারবিধি</h2>
+            </div>
+            <ul class="syllabus-list">
+                <li><strong>বাম দিকের মেনু:</strong> যেকোনো বিষয়ের সিলেবাস ও মানবণ্টন দেখতে পাশের তালিকা থেকে পছন্দের বিষয়ে ক্লিক করো।</li>
+                <li><strong>My Notes:</strong> নিজের পছন্দমতো বিষয়ের অধ্যায়ে গুরুত্বপূর্ণ পয়েন্ট লিখে সেভ করো।</li>
+                <li><strong>Others ড্যাশবোর্ড:</strong> এখান থেকে হাজিরা খাতা এবং লাইভ ডিজিটাল ঘড়ি ও এক্সাম কাউন্টডাউন দেখতে পাবে।</li>
+                <li><strong>থিম পরিবর্তন:</strong> নিচের ফ্লোটিং বাটন থেকে যেকোনো সময় চমৎকার থিম বদলে নিতে পারো।</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- অন্যান্য ড্যাশবোর্ড ভিউ -->
+    <div id="others-view" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>Others Dashboard</h1>
+        <p style="color: var(--text-sub); font-size: 0.95rem; font-weight: 600; margin-bottom: 18px;">প্রয়োজনীয় অপশনটি বেছে নিতে নিচের কার্ডগুলোতে ক্লিক করো:</p>
+        <div class="notes-subject-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="notes-subject-card" onclick="playSound(); showMyNotes();" style="border: 2px solid #ec4899;">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">📝</div>
+                <h3 style="font-size: 1rem; color: #f472b6;">My Notes</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); openRoutineModal();">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">🗓️</div>
+                <h3 style="font-size: 1rem;">রুটিন</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); toggleTheme();">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">🎨</div>
+                <h3 style="font-size: 1rem;">থিম পরিবর্তন</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showAttendance();">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">📋</div>
+                <h3 style="font-size: 1rem;">হাজিরা খাতা</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showClockCountdown();">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">⏰</div>
+                <h3 style="font-size: 1rem;">ডিজিটাল ঘড়ি ও কাউন্টডাউন</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); resetPortal();">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">🔄</div>
+                <h3 style="font-size: 1rem;">রিসেট</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- ডিজিটাল ঘড়ি ও কাউন্টডাউন ভিউ -->
+    <div id="clock-countdown-view" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showOthers();">⬅ Others</button>
+        <h1>লাইভ ডিজিটাল ঘড়ি ও এক্সাম কাউন্টডাউন</h1>
+        <p style="color: var(--text-sub); font-size: 0.95rem; font-weight: 600; margin-bottom: 18px;">বর্তমান সময় এবং পরীক্ষার বাকি দিনগুলোর লাইভ হিসাব:</p>
+        <div class="hover-card" style="text-align: center; border-left-color: #38bdf8;">
+            <h3 style="color: #38bdf8; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">বর্তমান লাইভ ঘড়ি</h3>
+            <div id="liveClockDisplay" style="font-size: 1.8rem; font-weight: 900; background: linear-gradient(90deg, #6366f1, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">০০:০০:০০</div>
+            <div id="liveDateDisplay" style="font-size: 0.95rem; color: var(--text-sub); margin-top: 5px; font-weight: 700;">লোড হচ্ছে...</div>
+        </div>
+        <div class="hover-card" style="text-align: center; border-left-color: #ec4899; margin-top: 20px;">
+            <h3 style="color: #f472b6; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">অর্ধবার্ষিক পরীক্ষা ২০২৬ কাউন্টডাউন</h3>
+            <div id="examCountdownDisplay" style="font-size: 1.3rem; font-weight: 900; color: var(--text-main);">হিসাব করা হচ্ছে...</div>
+        </div>
+    </div>
+
+    <!-- হাজিরা খাতা ভিউ -->
+    <div id="attendance-view" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showOthers();">⬅ Others</button>
+        <h1>শিক্ষার্থী হাজিরা খাতা (Attendance Record)</h1>
+        <p style="color: var(--text-sub); font-size: 0.95rem; font-weight: 600; margin-bottom: 18px;">নবম শ্রেণির শিক্ষার্থীদের আজকের ক্লাসের উপস্থিতি তালিকা:</p>
+        <div class="hover-card">
+            <div class="table-responsive-wrapper">
+                <table class="attendance-table">
+                    <thead>
+                        <tr>
+                            <th>রোল</th>
+                            <th>শিক্ষার্থীর নাম</th>
+                            <th>শ্রেণী</th>
+                            <th>উপস্থিতি স্ট্যাটাস</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendanceTableBody">
+                        <!-- জাভাস্ক্রিপ্ট দিয়ে ২৫ জন শিক্ষার্থী ডায়নামিকালি রেন্ডার হবে -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Notes ড্যাশবোর্ড ভিউ -->
+    <div id="my-notes-view" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>My Notes Dashboard</h1>
+        <p style="color: var(--text-sub); font-size: 0.95rem; font-weight: 600; margin-bottom: 18px;">যেকোনো বিষয়ের ওপর নোট তৈরি করতে নিচে নির্দিষ্ট বিষয়ে ক্লিক করো:</p>
+        
+        <div class="notes-subject-grid">
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-bangla1')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">📖</div>
+                <h3>১. বাংলা ১ম পত্র</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-bangla2')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">✍️</div>
+                <h3>২. বাংলা ২য় পত্র</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-english1')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">🔤</div>
+                <h3>৩. ইংরেজি ১ম পত্র</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-english2')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">📜</div>
+                <h3>৪. ইংরেজি ২য় পত্র</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-math')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">🔢</div>
+                <h3>৫. গণিত</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-higher-math')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">📐</div>
+                <h3>৬. উচ্চতর গণিত</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-physics')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">⚛️</div>
+                <h3>৭. পদার্থবিজ্ঞান</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-chemistry')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">🧪</div>
+                <h3>৮. রসায়ন</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-biology')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">🧬</div>
+                <h3>৯. জীববিজ্ঞান</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-bgs')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">🌍</div>
+                <h3>১০. বাংলাদেশ ও বিশ্বপরিচয়</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-islam')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">🕌</div>
+                <h3>১১. ধর্ম ও নৈতিক শিক্ষা</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-ict')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">💻</div>
+                <h3>১২. তথ্য ও যোগাযোগ প্রযুক্তি</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-history')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">🏛️</div>
+                <h3>১৩. ইতিহাস ও বিশ্বসভ্যতা</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-geography')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">🗺️</div>
+                <h3>১৪. ভূগোল ও পরিবেশ</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-civics')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">⚖️</div>
+                <h3>১৫. পৌরনীতি ও নাগরিকতা</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-economics')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">📈</div>
+                <h3>১৬. অর্থনীতি</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-accounting')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">💰</div>
+                <h3>১৭. হিসাববিজ্ঞান</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-finance')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">🏦</div>
+                <h3>১৮. ফিন্যান্স ও ব্যাংকিং</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-business')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">📊</div>
+                <h3>১৯. ব্যবসায় উদ্যোগ</h3>
+            </div>
+            <div class="notes-subject-card" onclick="playSound(); showSubjectNotes('note-section-agriculture')">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">🌾</div>
+                <h3>২০. কৃষি শিক্ষা</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- বাংলা ১ম পত্র গদ্য ও কবিতার আলাদা কার্ড এবং নোটস ইন্টারফেস -->
+    <div id="note-section-bangla1" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showMyNotes();">⬅ My Notes</button>
+        <h1>বাংলা ১ম পত্র - গদ্য ও কবিতা তালিকা</h1>
+        
+        <!-- গদ্য সেকশন কার্ড গ্রিড -->
+        <h2 style="font-size: 1.15rem; color: #38bdf8; margin: 20px 0 12px 0;">গদ্যসমূহ</h2>
+        <div class="notes-subject-grid" id="bangla1ProseGrid">
+            <!-- জাভাস্ক্রিপ্ট দিয়ে গদ্যের কার্ডগুলো ডায়নামিক আসবে -->
+        </div>
+
+        <!-- কবিতা সেকশন কার্ড গ্রিড -->
+        <h2 style="font-size: 1.15rem; color: #f472b6; margin: 30px 0 12px 0;">কবিতাসমূহ</h2>
+        <div class="notes-subject-grid" id="bangla1PoetryGrid">
+            <!-- জাভাস্ক্রিপ্ট দিয়ে কবিতার কার্ডগুলো ডায়নামিক আসবে -->
+        </div>
+    </div>
+
+    <!-- নির্দিষ্ট গদ্য বা কবিতার জন্য আলাদা নোটস ইন্টারফেস -->
+    <div id="single-note-interface" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showSubjectNotes('note-section-bangla1');">⬅ বাংলা ১ম পত্র</button>
+        <h1 id="singleNoteTitle">নোটস ইন্টারফেস</h1>
+        <div class="chapter-list-container">
+            <div class="chapter-note-box">
+                <h4 id="singleNoteSubtitle">অধ্যায়/টপিক</h4>
+                <textarea class="chapter-textarea" id="singleNoteTextarea" placeholder="এখানে আপনার নোট বা গুরুত্বপূর্ণ পয়েন্ট লিখুন..."></textarea>
+                <button class="save-note-btn" onclick="playSound(); saveActiveSingleNote()">নোট সেভ করো</button>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="note-section-bangla2" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showMyNotes();">⬅ My Notes</button>
+        <h1>বাংলা ২য় পত্র - নোটস</h1>
+        <div class="chapter-list-container">
+            <div class="chapter-note-box">
+                <h4>বাংলা ব্যাকরণ ও নির্মিতি</h4>
+                <textarea class="chapter-textarea" id="note_bangla2_grammar" placeholder="বাংলা ২য় পত্রের গুরুত্বপূর্ণ নিয়ম ও নোট এখানে লিখুন..."></textarea>
+                <button class="save-note-btn" onclick="playSound(); saveSpecificNote('note_bangla2_grammar')">নোট সেভ করো</button>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ১. বাংলা ১ম পত্র -->
+    <div id="bangla1" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>বাংলা ১ম পত্র (পাঠ্যসূচি ও মানবণ্টন- ২০২৬)</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">পরীক্ষার মানবন্টন (পূর্ণমান: ১০০)</h2>
+            <ul class="syllabus-list">
+                <li><strong>সৃজনশীল অংশ: ৭০ নম্বর</strong> (১১টি প্রশ্ন থেকে ৭টি দিতে হবে)।</li>
+                <li><strong>বহুনির্বাচনী প্রশ্ন (MCQ): ৩০ নম্বর</strong> (৩০টি প্রশ্ন থাকবে)।</li>
+            </ul>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">গদ্যসমূহ</span>
+                <ul class="syllabus-list">
+                    <li>প্রত্যুপকার, ফুলের বিবাহ, শুভা, লাইব্রেরি, বই পড়া, অভাগীর স্বর্গ, নিরীহ বাঙালি, পল্লিসাহিত্য, উদ্যম ও পরিশ্রম, জীবনে শিল্পের স্থান, আম-আঁটির ভেঁপু, মানুষ মুহম্মদ (স.), উপেক্ষিত শক্তির উদ্বোধন, নিমগাছ, শিক্ষা ও মনুষ্যত্ব, প্রবাস বন্ধু, মমতাধি, রুনমানুষ, একাত্তরের দিনগুলি, স্বাধীনতা আমার স্বাধীনতা, একুশের গল্প, আমাদের সংস্কৃতি, সাহিত্যের রূপ ও রীতি, বাংলা শব্দ, আমাদের নতুন গৌরবগাথা।</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">কবিতাসমূহ</span>
+                <ul class="syllabus-list">
+                    <li>বন্দনা, হামদ, বঙ্গবাণী, কপোতাক্ষ নদ, জীবন-সংগীত, প্রাণ, জুতা-আবিষ্কার, অন্ধবধূ, ঝরনার গান, ছায়াবাজি, জীবন বিনিময়, মানুষ, উমর ফারুক, সেইদিন এই মাঠ, যাব আমি তোমার দেশে, একটি কাফি, আমার দেশ, আমি কোনো আগন্তুক নই, বৃষ্টি, মে-দিনের কবিতা, আশা, পোস্টার, রানার, তোমাকে পাওয়ার জন্যে, হে স্বাধীনতা, অবাক পৃথিবী, বোশেখে, চুনিয়া আমার আর্কেডিয়া, মিছিল।</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ২. বাংলা ২য় পত্র -->
+    <div id="bangla2" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>বাংলা ২য় পত্র (পাঠ্যসূচি ও মানবণ্টন ২০২৬)</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">মানবন্টন: রচনামূলক ৭০ + বহু নির্বাচন ৩০ = ১০০</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক সিলেবাস</span>
+                <ul class="syllabus-list">
+                    <li>ব্যাকরণ: পরিচ্ছেদ ১ থেকে ২০।</li>
+                    <li>নির্মীতি: অনুচ্ছেদ, সারমর্ম ও পত্র লিখন।</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক সিলেবাস</span>
+                <ul class="syllabus-list">
+                    <li>ব্যাকরণ: পরিচ্ছেদ ২১ থেকে শেষ।</li>
+                    <li>নির্মীতি: ভাবসম্প্রসারণ, প্রতিবেদন ও প্রবন্ধ রচনা।</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ৩. ইংরেজি ১ম পত্র -->
+    <div id="english1" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>English 1st Paper (Syllabus & Marks 2026)</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">Marks: Reading Test (60) + Writing Test (40) = 100</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">Half-Yearly Syllabus</span>
+                <ul class="syllabus-list">
+                    <li>English For Today: Units 1, 2, 3, 4 and 5.</li>
+                    <li>Paragraphs and Graphs from Units 1-5.</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">Annual Syllabus</span>
+                <ul class="syllabus-list">
+                    <li>English For Today: Units 6, 7, 8, 9, 10, 11 and 12.</li>
+                    <li>All Writing items & Vocabulary.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ৪. ইংরেজি ২য় পত্র -->
+    <div id="english2" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>English 2nd Paper (Grammar & Composition 2026)</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">Marks: Grammar 60 + Composition 40 = 100</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">Half-Yearly</span>
+                <ul class="syllabus-list">
+                    <li>Gap filling, Substitution table, Right forms of verbs, Changing Sentences.</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">Annual</span>
+                <ul class="syllabus-list">
+                    <li>Narration, Modifiers, Connectors, Tag questions, Punctuation, CV/Email.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ৫. সাধারণ গণিত -->
+    <div id="math" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>গণিত (পাঠ্যসূচি ও মানবণ্টন ২০২৬)</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">সৃজনশীল ৭০ + MCQ ৩০ = ১০০</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক সিলেবাস</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১: বাস্তব সংখ্যা | অধ্যায় ২: সেট ও ফাংশন</li>
+                    <li>অধ্যায় ৩: বীজগণিতীয় রাশি | অধ্যায় ৭: ব্যবহারিক জ্যামিতি</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক সিলেবাস</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৪: সূচক ও লগারিদম | অধ্যায় ৮, ৯, ১০: বৃত্ত ও ত্রিকোণমিতি</li>
+                    <li>অধ্যায় ১৬: পরিমিতি | অধ্যায় ১৭: পরিসংখ্যান</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ৬. উচ্চতর গণিত -->
+    <div id="higher-math" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>উচ্চতর গণিত</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">পূর্ণমান: ১০০</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১: সেট | অধ্যায় ২: রাশি | অধ্যায় ৩: জ্যামিতি | অধ্যায় ৪: স্থানাঙ্ক</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৫: ত্রিকোণমিতি | অধ্যায় ৯: সূচক | অধ্যায় ১১: সম্ভাবনা</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ৭. পদার্থবিজ্ঞান -->
+    <div id="physics" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>পদার্থবিজ্ঞান</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">তত্ত্বীয় ৭৫ + ব্যবহারিক ২৫ = ১০০</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১: পরিমাপ | অধ্যায় ২: গতি | অধ্যায় ৩: বল | অধ্যায় ৪: শক্তি</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৫: চাপ | অধ্যায় ৬: তাপ | অধ্যায় ৭-৯: তরঙ্গ ও আলো</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ৮. রসায়ন -->
+    <div id="chemistry" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>রসায়ন</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">তত্ত্বীয় ৭৫ + ব্যবহারিক ২৫ = ১০০</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১: ধারণা | অধ্যায় ২: অবস্থা | অধ্যায় ৩: গঠন | অধ্যায় ৪: পর্যায় সারণি</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৫ থেকে ৯: বন্ধন, মোল ধারণা, বিক্রিয়া ও অম্ল-ক্ষারক</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ৯. জীববিজ্ঞান -->
+    <div id="biology" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>জীববিজ্ঞান</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">তত্ত্বীয় ৭৫ + ব্যবহারিক ২৫ = ১০০</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১: জীবন পাঠ | অধ্যায় ২: জীবকোষ | অধ্যায় ৩: কোষ বিভাজন</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৪ থেকে ১০: জীবনীশক্তি, পুষ্টি, শ্বসন ও সংবহন</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ১০. বাংলাদেশ ও বিশ্বপরিচয় -->
+    <div id="bgs" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>বাংলাদেশ ও বিশ্বপরিচয়</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">পূর্ণমান: ১০০ (সৃজনশীল + MCQ)</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১ থেকে ৫: বাংলাদেশ ও বিশ্বপরিচয় মৌলিক ধারণা ও ইতিহাস</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৬ থেকে ১০: অর্থনীতি, রাষ্ট্র ও পরিবেশ</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ১১. ধর্ম ও নৈতিক শিক্ষা -->
+    <div id="islam" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>ধর্ম ও নৈতিক শিক্ষা</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">পূর্ণমান: ১০০ (সৃজনশীল ৭০ + MCQ ৩০)</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১: আকাইদ ও বিশ্বাস | অধ্যায় ২: শরীয়তের উৎস</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৩: ইবাদত | অধ্যায় ৪: আখলাক | অধ্যায় ৫: আদর্শ জীবনচরিত</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ১২. তথ্য ও যোগাযোগ প্রযুক্তি -->
+    <div id="ict" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>তথ্য ও যোগাযোগ প্রযুক্তি</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">তত্ত্বীয় ২৫ + ব্যবহারিক ২৫ = ৫০ নম্বর</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১: আইসিটি ও বাংলাদেশ | অধ্যায় ২: কম্পিউটার ও নিরাপত্তা</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৩: ইন্টারনেট | অধ্যায় ৪: লেখালেখি | অধ্যায় ৫: মাল্টিমিডিয়া</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ১৩. ইতিহাস ও বিশ্বসভ্যতা -->
+    <div id="history" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>ইতিহাস ও বিশ্বসভ্যতা</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">পূর্ণমান: ১০০ (সৃজনশীল + MCQ)</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১: ইতিহাস পরিচিতি | অধ্যায় ২: বিশ্ব সভ্যতা</li>
+                    <li>অধ্যায় ৩ ও ৪: প্রাচীন বাংলার ইতিহাস</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৫ থেকে ৮: মধ্যযুগ, ব্রিটিশ শাসন ও স্বাধিকার আন্দোলন</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ১৪. ভূগোল ও পরিবেশ -->
+    <div id="geography" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>ভূগোল ও পরিবেশ</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">পূর্ণমান: ১০০</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১ থেকে ৫: ভূগোল, পৃথিবী, বারিমণ্ডল ও জলবায়ু</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৬ থেকে ১২: সম্পদ, যোগাযোগ ও পরিবেশ</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ১৫. পৌরনীতি ও নাগরিকতা -->
+    <div id="civics" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>পৌরনীতি ও নাগরিকতা</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">পূর্ণমান: ১০০</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১ থেকে ৫: পৌরনীতি, রাষ্ট্র, সরকার ও নাগরিকতা</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৬ থেকে ১০: আইন, স্বাধীনতা, সাম্য ও বাংলাদেশের সংবিধান</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ১৬. অর্থনীতি -->
+    <div id="economics" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>অর্থনীতি</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">পূর্ণমান: ১০০</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১ থেকে ৪: পরিচিতি, উৎপাদন, উপযোগ ও বাজার</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৫ থেকে ৮: জাতীয় আয়, ব্যাংক ও বাণিজ্য</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ১৭. হিসাববিজ্ঞান -->
+    <div id="accounting" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>হিসাববিজ্ঞান</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">পূর্ণমান: ১০০</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১ থেকে ৫: হিসাববিজ্ঞান পরিচিতি, লেনদেন ও দু তরফা দাখিলা পদ্ধতি</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৬ থেকে ১২: জাবেদা, খতিয়ান, রেওয়ামিল ও আর্থিক বিবরণী</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ১৮. ফিন্যান্স ও ব্যাংকিং -->
+    <div id="finance" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>ফিন্যান্স ও ব্যাংকিং</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">পূর্ণমান: ১০০</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১ থেকে ৫: ফিন্যান্সের ধারণা, অর্থায়ন ও ব্যাংক ব্যবস্থহা</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৬ থেকে ১১: মূলধন বাজেট, ব্যাংক আমানত ও চেক</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ১৯. ব্যবসায় উদ্যোগ -->
+    <div id="business" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>ব্যবসায় উদ্যোগ</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">পূর্ণমান: ১০০</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১ থেকে ৫: ব্যবসায় পরিচিতি, আত্মকর্মসংস্থান ও ব্যবসায় পরিকল্পনা</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৬ থেকে ১২: অংশীদারি ব্যবসায়, কোম্পানি সংগঠন ও বিপণন</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ২০. কৃষি শিক্ষা -->
+    <div id="agriculture" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>কৃষি শিক্ষা</h1>
+        <div class="hover-card">
+            <h2 style="color: #818cf8; margin-bottom: 10px; font-size: 1.1rem; font-weight: 800;">তত্ত্বীয় ৭৫ + ব্যবহারিক ২৫ = ১০০</h2>
+        </div>
+        <div class="syllabus-grid">
+            <div class="syllabus-box half-yearly">
+                <span class="syllabus-badge">অর্ধবার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ১ থেকে ৩: কৃষি প্রযুক্তি, ফসলের উৎপাদন ও মৃত্তিকা</li>
+                </ul>
+            </div>
+            <div class="syllabus-box annual">
+                <span class="syllabus-badge">বার্ষিক</span>
+                <ul class="syllabus-list">
+                    <li>অধ্যায় ৪ থেকে ৬: মৎস্য, পশু-পাখি পালন ও বনায়ন</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function playSound() {
+    const sound = document.getElementById('clickSound');
+    if (sound) {
+        sound.currentTime = 0;
+        sound.play().catch(e => {});
+    }
+}
+
+// ২৫ জন শিক্ষার্থীর তালিকা
+const studentsList = [
+    "jannat", "Roman", "tuhi", "hasib", "mahi", "ruhi", "riya", "sojib", "minhazul", "oishi", 
+    "hasan", "khushi", "toma", "abusime", "rabbi", "sinha", "jannatul", "muntasir", "miraz", 
+    "adiba", "Ira", "emon", "utsob", "raiyan", "yeasin"
+];
+
+function renderAttendanceTable() {
+    const tbody = document.getElementById('attendanceTableBody');
+    if (!tbody) return;
+    tbody.innerHTML = "";
+    
+    studentsList.forEach((name, index) => {
+        let roll = String(index + 1).padStart(2, '0');
+        let tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${roll}</td>
+            <td>${name}</td>
+            <td>নবম (আর্টস)</td>
+            <td>
+                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                    <input type="checkbox" onchange="toggleAttendanceStatus(this)" style="accent-color: #10b981; transform: scale(1.2);">
+                    <span class="status-badge status-absent">অনুপস্থিত</span>
+                </label>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+function toggleAttendanceStatus(checkbox) {
+    let span = checkbox.nextElementSibling;
+    if (checkbox.checked) {
+        span.className = "status-badge status-present";
+        span.innerText = "উপস্থিত";
+    } else {
+        span.className = "status-badge status-absent";
+        span.innerText = "অনুপস্থিত";
+    }
+}
+
+const themes = ["default", "dark", "light"];
+let currentThemeIndex = 0;
+
+function toggleTheme() {
+    currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+    let selectedTheme = themes[currentThemeIndex];
+    document.documentElement.setAttribute('data-theme', selectedTheme);
+    localStorage.setItem('portal_theme', selectedTheme);
+}
+
+// বাংলা ১ম পত্রের গদ্য ও কবিতার তালিকা ও তাদের ডাটা-কি ম্যাপিং
+const banglaProseList = [
+    { name: "প্রত্যুপকার", key: "note_protupokar" },
+    { name: "ফুলের বিবাহ", key: "note_fulerbbibah" },
+    { name: "শুভা", key: "note_shova" },
+    { name: "লাইব্রেরি", key: "note_library" },
+    { name: "বই পড়া", key: "note_boipora" },
+    { name: "অভাগীর স্বর্গ", key: "note_abhagirsehorgo" },
+    { name: "নিরীহ বাঙালি", key: "note_nireehbangali" },
+    { name: "পল্লিসাহিত্য", key: "note_pollisahitto" },
+    { name: "উদ্যম ও পরিশ্রম", key: "note_uddomoporisrom" },
+    { name: "জীবনে শিল্পের স্থান", key: "note_jiboneshilpessthan" },
+    { name: "আম-আঁটির ভেঁপু", key: "note_amartirvepu" },
+    { name: "মানুষ মুহম্মদ (স.)", key: "note_manushmuhammad" },
+    { name: "উপেক্ষিত শক্তির উদ্বোধন", key: "note_upekkhitoshoktir" },
+    { name: "নিমগাছ", key: "note_nimgach" },
+    { name: "শিক্ষা ও মনুষ্যত্ব", key: "note_shikkhaomonushshotto" },
+    { name: "প্রবাস বন্ধু", key: "note_probashbondhu" },
+    { name: "মমতাধি", key: "note_momotadhi" },
+    { name: "রুনমানুষ", key: "note_runmanush" },
+    { name: "একাত্তরের দিনগুলি", key: "note_ekattorerdinguli" },
+    { name: "স্বাধীনতা আমার স্বাধীনতা", key: "note_shadhinotaamar" },
+    { name: "একুশের গল্প", key: "note_ekushergolpo" },
+    { name: "আমাদের সংস্কৃতি", key: "note_amardeshishongskriti" },
+    { name: "সাহিত্যের রূপ ও রীতি", key: "note_sahitterruporiti" },
+    { name: "বাংলা শব্দ", key: "note_banglashobdho" },
+    { name: "আমাদের নতুন গৌরবগাথা", key: "note_amardeshinotungourob" }
+];
+
+const banglaPoetryList = [
+    { name: "বন্দনা", key: "note_bondona" },
+    { name: "হামদ", key: "note_hamd" },
+    { name: "বঙ্গবাণী", key: "note_bongobani" },
+    { name: "কপোতাক্ষ নদ", key: "note_kopotakkonod" },
+    { name: "জীবন-সংগীত", key: "note_jibonshongit" },
+    { name: "প্রাণ", key: "note_pran" },
+    { name: "জুতা-আবিষ্কার", key: "note_jutaabishkar" },
+    { name: "অন্ধবধূ", key: "note_ondhobodhu" },
+    { name: "ঝরনার গান", key: "note_jhornarngan" },
+    { name: "ছায়াবাজি", key: "note_chayabaji" },
+    { name: "জীবন বিনিময়", key: "note_jibonbinimoy" },
+    { name: "মানুষ", key: "note_manush" },
+    { name: "উমর ফারুক", key: "note_omoruforuk" },
+    { name: "সেইদিন এই মাঠ", key: "note_seidinashimath" },
+    { name: "যাব আমি তোমার দেশে", key: "note_jabamitomardeshe" },
+    { name: "একটি কাফি", key: "note_ektikafi" },
+    { name: "আমার দেশ", key: "note_amardesh" },
+    { name: "আমি কোনো আগন্তুক নই", key: "note_amikonoagontuk" },
+    { name: "বৃষ্টি", key: "note_brishti" },
+    { name: "মে-দিনের কবিতা", key: "note_medinerkobita" },
+    { name: "আশা", key: "note_asha" },
+    { name: "পোস্টার", key: "note_poster" },
+    { name: "রানার", key: "note_ranar" },
+    { name: "তোমাকে পাওয়ার জন্যে, হে স্বাধীনতা", key: "note_tomakepawarnjone" },
+    { name: "অবাক পৃথিবী", key: "note_obakprithibi" },
+    { name: "বোশেখে", key: "note_boshekhe" },
+    { name: "চুনিয়া আমার আর্কেডিয়া", key: "note_chuniaamar" },
+    { name: "মিছিল", key: "note_michil" }
+];
+
+let activeSingleNoteKey = "";
+
+function renderBangla1Cards() {
+    const proseGrid = document.getElementById('bangla1ProseGrid');
+    const poetryGrid = document.getElementById('bangla1PoetryGrid');
+    
+    if (proseGrid) {
+        proseGrid.innerHTML = "";
+        banglaProseList.forEach(item => {
+            let card = document.createElement('div');
+            card.className = "notes-subject-card";
+            card.style.textAlign = "left";
+            card.style.borderLeft = "4px solid #38bdf8";
+            card.innerHTML = `<div style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">${item.name}</div><div style="font-size: 0.82rem; color: var(--text-sub); margin-top: 5px;">নোটস দেখতে ক্লিক করুন →</div>`;
+            card.onclick = () => { playSound(); openSingleNoteInterface(item.name, item.key); };
+            proseGrid.appendChild(card);
+        });
+    }
+
+    if (poetryGrid) {
+        poetryGrid.innerHTML = "";
+        banglaPoetryList.forEach(item => {
+            let card = document.createElement('div');
+            card.className = "notes-subject-card";
+            card.style.textAlign = "left";
+            card.style.borderLeft = "4px solid #f472b6";
+            card.innerHTML = `<div style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">${item.name}</div><div style="font-size: 0.82rem; color: var(--text-sub); margin-top: 5px;">নোটস দেখতে ক্লিক করুন →</div>`;
+            card.onclick = () => { playSound(); openSingleNoteInterface(item.name, item.key); };
+            poetryGrid.appendChild(card);
+        });
+    }
+}
+
+function openSingleNoteInterface(title, key) {
+    activeSingleNoteKey = key;
+    document.getElementById('singleNoteTitle').innerText = "বাংলা ১ম পত্র - " + title;
+    document.getElementById('singleNoteSubtitle').innerText = title + " (নোট ও পয়েন্ট)";
+    
+    const textarea = document.getElementById('singleNoteTextarea');
+    let saved = localStorage.getItem(key);
+    textarea.value = saved ? saved : "";
+    
+    // ভিউ পরিবর্তন করার সময় হিস্ট্রি পুশ করা
+    history.pushState({ view: 'single-note-interface' }, '', '');
+    
+    document.querySelectorAll('.subject-view').forEach(el => el.style.display = 'none');
+    document.getElementById('single-note-interface').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function saveActiveSingleNote() {
+    const textarea = document.getElementById('singleNoteTextarea');
+    if (activeSingleNoteKey) {
+        localStorage.setItem(activeSingleNoteKey, textarea.value);
+        alert("নোট সফলভাবে সেভ করা হয়েছে!");
+    }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    let savedTheme = localStorage.getItem('portal_theme') || 'default';
+    let themeIdx = themes.indexOf(savedTheme);
+    if (themeIdx !== -1) {
+        currentThemeIndex = themeIdx;
+    }
+    document.documentElement.setAttribute('data-theme', themes[currentThemeIndex]);
+    
+    const allKeys = [...banglaProseList, ...banglaPoetryList].map(i => i.key);
+    allKeys.push('note_bangla2_grammar');
+    
+    allKeys.forEach(key => {
+        let saved = localStorage.getItem(key);
+        if(saved && document.getElementById(key)) {
+            document.getElementById(key).value = saved;
+        }
+    });
+
+    renderBangla1Cards();
+    renderAttendanceTable();
+    
+    // ইনিশিয়াল স্টেট পুশ
+    history.replaceState({ view: 'home-view' }, '', '');
+});
+
+// ব্যাক বাটন বা অ্যারো বাটনের জন্য হ্যান্ডলার
+window.addEventListener('popstate', (event) => {
+    // কোনো মডাল খোলা থাকলে প্রথমে তা বন্ধ করবে
+    const modals = document.querySelectorAll('.modal-overlay');
+    let modalClosed = false;
+    modals.forEach(m => {
+        if (m.style.display === 'flex') {
+            m.style.display = 'none';
+            modalClosed = true;
+        }
+    });
+    if (modalClosed) return;
+
+    if (event.state && event.state.view) {
+        switchView(event.state.view, null, true);
+    } else {
+        showHome();
+    }
+});
+
+function goBackState() {
+    window.history.back();
+}
+
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    sidebar.classList.toggle('open');
+    if (sidebar.classList.contains('open')) {
+        overlay.style.display = 'block';
+    } else {
+        overlay.style.display = 'none';
+    }
+}
+
+function showHome(e) {
+    switchView('home-view', e);
+}
+
+function showMyNotes(e) {
+    switchView('my-notes-view', e);
+}
+
+function showOthers(e) {
+    switchView('others-view', e);
+}
+
+function showSubject(subjectId, e) {
+    switchView(subjectId, e);
+}
+
+function showSubjectNotes(sectionId) {
+    switchView(sectionId);
+}
+
+function showAttendance() {
+    switchView('attendance-view');
+}
+
+function showClockCountdown() {
+    switchView('clock-countdown-view');
+}
+
+function switchView(viewId, e, isPop = false) {
+    document.querySelectorAll('.subject-view').forEach(el => {
+        el.style.display = 'none';
+        el.classList.remove('animate-view');
+    });
+    
+    const target = document.getElementById(viewId);
+    if (target) {
+        target.style.display = 'block';
+        target.classList.add('animate-view');
+    }
+    
+    if (!isPop) {
+        history.pushState({ view: viewId }, '', '');
+    }
+    
+    if (e && e.target) {
+        document.querySelectorAll('.sidebar ul li button').forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+    }
+    
+    if (window.innerWidth < 900) {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        if (sidebar && sidebar.classList.contains('open')) {
+            sidebar.classList.remove('open');
+            if (overlay) overlay.style.display = 'none';
+        }
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function filterSidebarMenu() {
+    let query = document.getElementById('liveSearchInput').value.toLowerCase();
+    let list = document.getElementById('sidebarMenuList');
+    let items = list.getElementsByTagName('li');
+    
+    for (let i = 0; i < items.length; i++) {
+        let btn = items[i].getElementsByTagName('button')[0];
+        if (btn) {
+            let text = btn.innerText.toLowerCase();
+            if (text.includes(query)) {
+                items[i].style.display = "";
+            } else {
+                items[i].style.display = "none";
+            }
+        }
+    }
+}
+
+function openSubjectModal() {
+    document.getElementById('subjectModal').style.display = 'flex';
+}
+
+function closeSubjectModal() {
+    document.getElementById('subjectModal').style.display = 'none';
+}
+
+function openRoutineModal() {
+    document.getElementById('routineModal').style.display = 'flex';
+}
+
+function closeRoutineModal() {
+    document.getElementById('routineModal').style.display = 'none';
+}
+
+function closeModalOnOutsideClick(event, modalId) {
+    if (event.target.id === modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+}
+
+function selectFromModal(viewId) {
+    closeSubjectModal();
+    if (viewId === 'my-notes-view') {
+        showMyNotes();
+    }
+}
+
+function saveSpecificNote(keyId) {
+    let val = document.getElementById(keyId).value;
+    localStorage.setItem(keyId, val);
+    alert("নোট সফলভাবে সেভ করা হয়েছে!");
+}
+
+function resetPortal() {
+    if (confirm("আপনি কি সমস্ত ডেটা রিসেট করতে চান?")) {
+        localStorage.clear();
+        location.reload();
+    }
+}
+</script>
+</body>
+</html>
