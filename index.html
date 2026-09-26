@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SSC Success Point পাঠ্যসূচি ও মানবণ্টন ২০২৬</title>
+<title>SSC Success Point Pathasuchi O Manbonton 2026</title>
 <style>
-/* থিম কালার ভেরিয়েবল */
+/* Theme Color Variables */
 :root[data-theme="default"] {
     --bg-gradient: linear-gradient(-45deg, #0f172a, #1e1b4b, #2e1065, #0369a1, #0f172a);
     --text-main: #f8fafc;
@@ -53,7 +53,7 @@ body {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-/* ফ্লোটিং একশন বাটন গ্রুপ */
+/* Floating Action Group */
 .floating-action-group {
     position: fixed;
     bottom: 15px;
@@ -99,7 +99,7 @@ body {
     display: none;
     align-self: flex-end;
 }
-/* মোবাইল হেডার */
+/* Mobile Header */
 .mobile-header {
     display: flex;
     background: var(--glass-bg);
@@ -129,7 +129,7 @@ body {
     cursor: pointer;
 }
 
-/* ডান দিকের উপরে গোল সেটিংস বাটন স্টাইল - একটু নিচে নামানো হয়েছে */
+/* Top Right Setting Button */
 .top-right-setting-btn {
     position: fixed;
     top: 75px;
@@ -156,7 +156,7 @@ body {
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3));
 }
 
-/* সাইডবার */
+/* Sidebar */
 .sidebar {
     width: 280px;
     background: var(--sidebar-bg);
@@ -287,7 +287,7 @@ body {
     max-width: 1150px;
     transition: all 0.3s ease;
 }
-/* কার্ড ও ডিজাইন */
+/* Cards */
 .card {
     background: var(--glass-card);
     backdrop-filter: blur(20px);
@@ -348,7 +348,7 @@ h1 {
     0% { opacity: 0; transform: translateY(25px) scale(0.97); }
     100% { opacity: 1; transform: translateY(0) scale(1); }
 }
-/* স্ট্যাটস গ্রিড */
+/* Stats Grid */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -387,7 +387,7 @@ h1 {
     margin-top: 6px;
     font-weight: 700;
 }
-/* সিলেবাস গ্রিড */
+/* Syllabus Grid */
 .syllabus-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -455,7 +455,7 @@ h1 {
     font-size: 0.8rem;
     top: 2px;
 }
-/* স্কুল হেডার বড় বক্স */
+/* School Header Box */
 .school-header-box {
     text-align: center;
     padding: 25px 15px;
@@ -640,7 +640,7 @@ h1 {
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
 }
-/* টেবিল স্টাইল */
+/* Table Style */
 .table-responsive-wrapper {
     width: 100%;
     overflow-x: auto;
@@ -685,7 +685,7 @@ h1 {
     border: 1px solid rgba(239, 68, 68, 0.3);
     display: inline-block;
 }
-/* মডাল */
+/* Modal */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -782,7 +782,7 @@ h1 {
 }
 .back-to-notes-btn:hover { transform: translateX(-3px); }
 
-/* গুগল লগইন বাটন ডিজাইন */
+/* Google Login Button */
 .google-login-btn {
     background: #ffffff;
     color: #1f2937;
@@ -808,21 +808,20 @@ h1 {
 
 <audio id="clickSound" src="click.mp3" preload="auto"></audio>
 
-<!-- ডান দিকের উপরে গোল সেটিংস বাটন -->
-<button class="top-right-setting-btn" onclick="playSound(); openSubjectModal();" title="Settings / My Notes">
+<!-- Top Right Setting Button -->
+<button class="top-right-setting-btn" onclick="playSound(); openSubjectModal();" title="Settings">
     ⚙️
 </button>
 
-<!-- ফ্লোটিং একশন বাটন গ্রুপ -->
+<!-- Floating Action Group -->
 <div class="floating-action-group" id="floatingActionGroup">
-    <!-- ব্যাক করার জন্য নতুন অ্যারো বাটন -->
-    <button class="floating-btn" onclick="playSound(); goBackState();" title="Back / পূর্বের পেজে যান" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">⬅</button>
-    <button class="floating-btn scroll-top-btn" id="scrollTopBtn" onclick="playSound(); scrollToTop();" title="উপরে যান">↑</button>
-    <button class="floating-btn" onclick="playSound(); showMyNotes();" title="My Notes" style="background: linear-gradient(135deg, #ec4899, #818cf8);">Notes</button>
+    <button class="floating-btn" onclick="playSound(); goBackState();" title="Back" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">⬅</button>
+    <button class="floating-btn scroll-top-btn" id="scrollTopBtn" onclick="playSound(); scrollToTop();" title="Top">↑</button>
+    <button class="floating-btn" onclick="playSound(); showMyNotes();" title="Notes" style="background: linear-gradient(135deg, #ec4899, #818cf8);">Notes</button>
     <button class="floating-btn" onclick="playSound(); showOthers();" title="Others" style="background: linear-gradient(135deg, #3b82f6, #10b981);">Others</button>
 </div>
 
-<!-- মোবাইল হেডার -->
+<!-- Mobile Header -->
 <div class="mobile-header">
     <h3>SSC SUCCESS POINT</h3>
     <button class="menu-toggle" onclick="playSound(); toggleSidebar();">Menu</button>
@@ -830,21 +829,23 @@ h1 {
 
 <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
-<!-- বিষয় সিলেক্টর মডাল -->
+<!-- Settings Modal (Separate Options) -->
 <div class="modal-overlay" id="subjectModal" onclick="closeModalOnOutsideClick(event, 'subjectModal')">
     <div class="modal-card">
         <div class="modal-header">
-            <h3>Settings Option</h3>
+            <h3>Settings Menu</h3>
             <button class="close-btn" onclick="playSound(); closeSubjectModal();">×</button>
         </div>
         <div class="modal-grid">
             <button class="modal-grid-btn" onclick="selectFromModal('my-notes-view')">📝 My Notes</button>
-            <button class="modal-grid-btn" onclick="selectFromModal('account-name-view')" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3)); border-color: #6366f1;">👤 Account Name & Notes</button>
+            <button class="modal-grid-btn" onclick="selectFromModal('account-profile-view')">👤 Account Profile (Nickname)</button>
+            <button class="modal-grid-btn" onclick="selectFromModal('account-password-view')">🔑 Account Password</button>
+            <button class="modal-grid-btn" onclick="selectFromModal('account-picture-view')">🖼️ Profile Picture</button>
         </div>
     </div>
 </div>
 
-<!-- রুটিন মডাল -->
+<!-- Routine Modal -->
 <div class="modal-overlay" id="routineModal" onclick="closeModalOnOutsideClick(event, 'routineModal')">
     <div class="modal-card">
         <div class="modal-header">
@@ -860,7 +861,7 @@ h1 {
     </div>
 </div>
 
-<!-- সাইডবার -->
+<!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <div class="sidebar-school-title">SSC Success Point</div>
     <div class="sidebar-school-sub">ডিজিটাল স্টাডি পোর্টাল ২০২৬</div>
@@ -896,26 +897,27 @@ h1 {
     </ul>
 </div>
 
-<!-- মূল কন্টেন্ট এরিয়া -->
+<!-- Main Content Area -->
 <div class="main-content">
-    <!-- হোম পেজ -->
+    <!-- Home View -->
     <div id="home-view" class="subject-view card animate-view" style="display: block;">
         <div class="school-header-box">
-            <div class="school-logo">🚀</div>
+            <div class="school-logo" id="headerProfilePic">🚀</div>
             <div class="school-title">SSC SUCCESS POINT</div>
             <div class="school-meta">
                 <span class="school-badge">লক্ষ্য: এস এস সি ২০২৬</span>
                 <span class="school-badge">স্মার্ট লার্নিং প্ল্যাটফর্ম</span>
                 <span class="school-badge">সফলতার নতুন দিগন্ত</span>
             </div>
-            <!-- ফায়ারবেস গুগল লগইন বাটন যুক্ত করা হয়েছে -->
-            <div style="margin-top: 15px;">
+            
+            <!-- Google Login Section (Hidden after login) -->
+            <div style="margin-top: 15px;" id="loginSectionContainer">
                 <button class="google-login-btn" onclick="loginWithGoogle()">
-                    <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.63-.06-1.25-.19-1.84H9v3.49h4.84c-.21 1.12-.86 2.07-1.83 2.71v2.26h2.96c1.73-1.59 2.87-3.93 2.87-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.96-2.26c-.83.56-1.88.9-3.0 변.9-2.3 0-4.25-1.55-4.95-3.64H1.01v2.33C2.5 15.98 5.48 18 9 18z"/><path fill="#FBBC05" d="M4.05 10.82c-.18-.56-.28-1.16-.28-1.82s.1-1.26.28-1.82V4.85H1.01C.37 6.13 0 7.57 0 9s.37 2.87 1.01 4.15l3.04-2.33z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.51.45 3.44 1.34l2.58-2.58C13.47.89 11.43 0 9 0 5.48 0 2.5 2.02 1.01 4.85l3.04 2.33c.7-2.09 2.65-3.6 4.95-3.6z"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.63-.06-1.25-.19-1.84H9v3.49h4.84c-.21 1.12-.86 2.07-1.83 2.71v2.26h2.96c1.73-1.59 2.87-3.93 2.87-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.96-2.26c-.83.56-1.88.9-3.0 0-2.3 0-4.25-1.55-4.95-3.64H1.01v2.33C2.5 15.98 5.48 18 9 18z"/><path fill="#FBBC05" d="M4.05 10.82c-.18-.56-.28-1.16-.28-1.82s.1-1.26.28-1.82V4.85H1.01C.37 6.13 0 7.57 0 9s.37 2.87 1.01 4.15l3.04-2.33z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.51.45 3.44 1.34l2.58-2.58C13.47.89 11.43 0 9 0 5.48 0 2.5 2.02 1.01 4.85l3.04 2.33c.7-2.09 2.65-3.6 4.95-3.6z"/></svg>
                     Google দিয়ে লগইন করুন
                 </button>
-                <div id="userInfo" style="margin-top: 10px; font-size: 0.9rem; color: #34d399; font-weight: bold;"></div>
             </div>
+            <div id="userInfo" style="margin-top: 10px; font-size: 0.95rem; color: #34d399; font-weight: bold;"></div>
         </div>
         
         <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
@@ -982,12 +984,10 @@ h1 {
         </div>
     </div>
 
-    <!-- অ্যাকাউন্ট নেম ও নিজের নোট দেখার ড্যাশবোর্ড ভিউ -->
-    <div id="account-name-view" class="subject-view card">
+    <!-- Account Profile View (Nickname) -->
+    <div id="account-profile-view" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
-        <h1>Account Name & Personal Notes</h1>
-        <p style="color: var(--text-sub); font-size: 0.95rem; font-weight: 600; margin-bottom: 18px;">আপনার অ্যাকাউন্ট নেকনেম সেট করুন এবং শুধুমাত্র আপনার সেভ করা নোটগুলো দেখুন:</p>
-        
+        <h1>Account Profile & Personal Notes</h1>
         <div class="hover-card" style="border-left-color: #6366f1;">
             <h3 style="color: #818cf8; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">নেকনেম (Nickname) সেট করুন</h3>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
@@ -1005,7 +1005,34 @@ h1 {
         </div>
     </div>
 
-    <!-- অন্যান্য ড্যাশবোর্ড ভিউ -->
+    <!-- Account Password View -->
+    <div id="account-password-view" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>Account Password Setting</h1>
+        <div class="hover-card" style="border-left-color: #38bdf8;">
+            <h3 style="color: #38bdf8; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">পাসওয়ার্ড পরিবর্তন বা সেট করুন</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px; max-width: 400px;">
+                <input type="password" id="newPasswordInput" class="sidebar-search-input" placeholder="নতুন পাসওয়ার্ড দিন...">
+                <button class="save-note-btn" onclick="playSound(); savePassword()" style="float: none; margin-top: 0;">পাসওয়ার্ড সেভ করো</button>
+            </div>
+            <div id="passwordStatusMsg" style="margin-top: 10px; font-size: 0.9rem; color: #34d399; font-weight: bold;"></div>
+        </div>
+    </div>
+
+    <!-- Profile Picture View -->
+    <div id="account-picture-view" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
+        <h1>Profile Picture Setting</h1>
+        <div class="hover-card" style="border-left-color: #10b981;">
+            <h3 style="color: #34d399; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">প্রোফাইল পিকচার লিংক দিন (Image URL)</h3>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <input type="text" id="profilePicUrlInput" class="sidebar-search-input" placeholder="ছবির ডিরেক্ট লিংক (URL) পেস্ট করুন..." style="flex: 1; min-width: 200px;">
+                <button class="save-note-btn" onclick="playSound(); saveProfilePic()" style="float: none; margin-top: 0;">পিকচার সেভ করো</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Others Dashboard -->
     <div id="others-view" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>Others Dashboard</h1>
@@ -1038,7 +1065,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ডিজিটাল ঘড়ি ও কাউন্টডাউন ভিউ -->
+    <!-- Clock & Countdown View -->
     <div id="clock-countdown-view" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showOthers();">⬅ Others</button>
         <h1>লাইভ ডিজিটাল ঘড়ি ও এক্সাম কাউন্টডাউন</h1>
@@ -1054,7 +1081,7 @@ h1 {
         </div>
     </div>
 
-    <!-- হাজিরা খাতা ভিউ -->
+    <!-- Attendance View -->
     <div id="attendance-view" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showOthers();">⬅ Others</button>
         <h1>শিক্ষার্থী হাজিরা খাতা (Attendance Record)</h1>
@@ -1071,14 +1098,13 @@ h1 {
                         </tr>
                     </thead>
                     <tbody id="attendanceTableBody">
-                        <!-- জাভাস্ক্রিপ্ট দিয়ে ২৫ জন শিক্ষার্থী ডায়নামিকালি রেন্ডার হবে -->
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <!-- My Notes ড্যাশবোর্ড ভিউ -->
+    <!-- My Notes Dashboard View -->
     <div id="my-notes-view" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>My Notes Dashboard</h1>
@@ -1168,25 +1194,19 @@ h1 {
         </div>
     </div>
 
-    <!-- বাংলা ১ম পত্র গদ্য ও কবিতার আলাদা কার্ড এবং নোটস ইন্টারফেস -->
+    <!-- Bangla 1st Paper Prose & Poetry List -->
     <div id="note-section-bangla1" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showMyNotes();">⬅ My Notes</button>
         <h1>বাংলা ১ম পত্র - গদ্য ও কবিতা তালিকা</h1>
         
-        <!-- গদ্য সেকশন কার্ড গ্রিড -->
         <h2 style="font-size: 1.15rem; color: #38bdf8; margin: 20px 0 12px 0;">গদ্যসমূহ</h2>
-        <div class="notes-subject-grid" id="bangla1ProseGrid">
-            <!-- জাভাস্ক্রিপ্ট দিয়ে গদ্যের কার্ডগুলো ডায়নামিক আসবে -->
-        </div>
+        <div class="notes-subject-grid" id="bangla1ProseGrid"></div>
 
-        <!-- কবিতা সেকশন কার্ড গ্রিড -->
         <h2 style="font-size: 1.15rem; color: #f472b6; margin: 30px 0 12px 0;">কবিতাসমূহ</h2>
-        <div class="notes-subject-grid" id="bangla1PoetryGrid">
-            <!-- জাভাস্ক্রিপ্ট দিয়ে কবিতার কার্ডগুলো ডায়নামিক আসবে -->
-        </div>
+        <div class="notes-subject-grid" id="bangla1PoetryGrid"></div>
     </div>
 
-    <!-- নির্দিষ্ট গদ্য বা কবিতার জন্য আলাদা নোটস ইন্টারফেস -->
+    <!-- Single Note Interface -->
     <div id="single-note-interface" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showSubjectNotes('note-section-bangla1');">⬅ বাংলা ১ম পত্র</button>
         <h1 id="singleNoteTitle">নোটস ইন্টারফেস</h1>
@@ -1213,7 +1233,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ১. বাংলা ১ম পত্র -->
+    <!-- 1. Bangla 1st Paper Syllabus -->
     <div id="bangla1" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>বাংলা ১ম পত্র (পাঠ্যসূচি ও মানবণ্টন- ২০২৬)</h1>
@@ -1240,7 +1260,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ২. বাংলা ২য় পত্র -->
+    <!-- 2. Bangla 2nd Paper -->
     <div id="bangla2" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>বাংলা ২য় পত্র (পাঠ্যসূচি ও মানবণ্টন ২০২৬)</h1>
@@ -1265,7 +1285,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ৩. ইংরেজি ১ম পত্র -->
+    <!-- 3. English 1st Paper -->
     <div id="english1" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>English 1st Paper (Syllabus & Marks 2026)</h1>
@@ -1290,7 +1310,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ৪. ইংরেজি ২য় পত্র -->
+    <!-- 4. English 2nd Paper -->
     <div id="english2" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>English 2nd Paper (Grammar & Composition 2026)</h1>
@@ -1313,7 +1333,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ৫. সাধারণ গণিত -->
+    <!-- 5. Math -->
     <div id="math" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>গণিত (পাঠ্যসূচি ও মানবণ্টন ২০২৬)</h1>
@@ -1338,7 +1358,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ৬. উচ্চতর গণিত -->
+    <!-- 6. Higher Math -->
     <div id="higher-math" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>উচ্চতর গণিত</h1>
@@ -1361,7 +1381,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ৭. পদার্থবিজ্ঞান -->
+    <!-- 7. Physics -->
     <div id="physics" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>পদার্থবিজ্ঞান</h1>
@@ -1384,7 +1404,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ৮. রসায়ন -->
+    <!-- 8. Chemistry -->
     <div id="chemistry" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>রসায়ন</h1>
@@ -1407,7 +1427,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ৯. জীববিজ্ঞান -->
+    <!-- 9. Biology -->
     <div id="biology" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>জীববিজ্ঞান</h1>
@@ -1430,7 +1450,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ১০. বাংলাদেশ ও বিশ্বপরিচয় -->
+    <!-- 10. BGS -->
     <div id="bgs" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>বাংলাদেশ ও বিশ্বপরিচয়</h1>
@@ -1453,7 +1473,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ১১. ধর্ম ও নৈতিক শিক্ষা -->
+    <!-- 11. Islam -->
     <div id="islam" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>ধর্ম ও নৈতিক শিক্ষা</h1>
@@ -1476,7 +1496,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ১২. তথ্য ও যোগাযোগ প্রযুক্তি -->
+    <!-- 12. ICT -->
     <div id="ict" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>তথ্য ও যোগাযোগ প্রযুক্তি</h1>
@@ -1499,7 +1519,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ১৩. ইতিহাস ও বিশ্বসভ্যতা -->
+    <!-- 13. History -->
     <div id="history" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>ইতিহাস ও বিশ্বসভ্যতা</h1>
@@ -1523,7 +1543,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ১৪. ভূগোল ও পরিবেশ -->
+    <!-- 14. Geography -->
     <div id="geography" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>ভূগোল ও পরিবেশ</h1>
@@ -1546,7 +1566,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ১৫. পৌরনীতি ও নাগরিকতা -->
+    <!-- 15. Civics -->
     <div id="civics" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>পৌরনীতি ও নাগরিকতা</h1>
@@ -1569,7 +1589,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ১৬. অর্থনীতি -->
+    <!-- 16. Economics -->
     <div id="economics" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>অর্থনীতি</h1>
@@ -1592,7 +1612,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ১৭. হিসাববিজ্ঞান -->
+    <!-- 17. Accounting -->
     <div id="accounting" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>হিসাববিজ্ঞান</h1>
@@ -1615,7 +1635,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ১৮. ফিন্যান্স ও ব্যাংকিং -->
+    <!-- 18. Finance -->
     <div id="finance" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>ফিন্যান্স ও ব্যাংকিং</h1>
@@ -1638,7 +1658,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ১৯. ব্যবসায় উদ্যোগ -->
+    <!-- 19. Business -->
     <div id="business" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>ব্যবসায় উদ্যোগ</h1>
@@ -1661,7 +1681,7 @@ h1 {
         </div>
     </div>
 
-    <!-- ২০. কৃষি শিক্ষা -->
+    <!-- 20. Agriculture -->
     <div id="agriculture" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
         <h1>কৃষি শিক্ষা</h1>
@@ -1685,12 +1705,11 @@ h1 {
     </div>
 </div>
 
-<!-- Firebase SDK (Modular Version) ইমপোর্ট করা হলো -->
+<!-- Firebase SDK -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-    // Your web app's Firebase configuration
     const firebaseConfig = {
       apiKey: "AIzaSyCL4B7R1VNF8iQTIQd8jlN36XUmH-1UXYk",
       authDomain: "ssc-success-point.firebaseapp.com",
@@ -1700,23 +1719,23 @@ h1 {
       appId: "1:603855206482:web:c1e80635928026dedfc78b"
     };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
 
-    // গ্লোবাল ফাংশন হিসেবে ডিক্লেয়ার করা যাতে এইচটিএমএল থেকে কল করা যায়
     window.loginWithGoogle = function() {
         signInWithPopup(auth, provider)
           .then((result) => {
             const user = result.user;
-            document.getElementById('userInfo').innerText = "স্বাগতম, " + user.displayName + "!";
-            
-            // অটোমেটিক লোকালস্টোরেজে ইউজার ইমেইল ও নাম সেট করা
             localStorage.setItem('portal_logged_email', user.email);
+            localStorage.setItem('portal_is_logged_in', 'true');
             if(!localStorage.getItem('portal_user_nickname')) {
                 localStorage.setItem('portal_user_nickname', user.displayName);
             }
+            if(user.photoURL && !localStorage.getItem('portal_profile_pic')) {
+                localStorage.setItem('portal_profile_pic', user.photoURL);
+            }
+            checkLoginState();
             playSound();
           })
           .catch((error) => {
@@ -1735,7 +1754,29 @@ function playSound() {
     }
 }
 
-// ২৫ জন শিক্ষার্থীর তালিকা
+// Check Login State to hide login button permanently after login
+function checkLoginState() {
+    let isLoggedIn = localStorage.getItem('portal_is_logged_in');
+    let nick = localStorage.getItem('portal_user_nickname');
+    let pic = localStorage.getItem('portal_profile_pic');
+    
+    let loginContainer = document.getElementById('loginSectionContainer');
+    let userInfoDiv = document.getElementById('userInfo');
+    let profileLogo = document.getElementById('headerProfilePic');
+
+    if (isLoggedIn === 'true') {
+        if(loginContainer) loginContainer.style.display = 'none';
+        if(userInfoDiv) userInfoDiv.innerText = "স্বাগতম, " + (nick ? nick : "অ্যাকাউন্ট ব্যবহারকারী") + "!";
+    }
+
+    if (pic) {
+        if(profileLogo) {
+            profileLogo.innerHTML = `<img src="${pic}" alt="Profile" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
+        }
+    }
+}
+
+// 25 Students List
 const studentsList = [
     "jannat", "Roman", "tuhi", "hasib", "mahi", "ruhi", "riya", "sojib", "minhazul", "oishi", 
     "hasan", "khushi", "toma", "abusime", "rabbi", "sinha", "jannatul", "muntasir", "miraz", 
@@ -1786,7 +1827,7 @@ function toggleTheme() {
     localStorage.setItem('portal_theme', selectedTheme);
 }
 
-// বাংলা ১ম পত্রের গদ্য ও কবিতার তালিকা ও তাদের ডাটা-কি ম্যাপিং
+// Bangla Prose & Poetry
 const banglaProseList = [
     { name: "প্রত্যুপকার", key: "note_protupokar" },
     { name: "ফুলের বিবাহ", key: "note_fulerbbibah" },
@@ -1903,19 +1944,43 @@ function saveActiveSingleNote() {
     }
 }
 
-// নেকনেম সেভ করার ফাংশন
+// Nickname Saving & Loading
 function saveNickname() {
     let nick = document.getElementById('userNicknameInput').value.trim();
     if(nick) {
         localStorage.setItem('portal_user_nickname', nick);
         alert("নেকনেম সফলভাবে সেভ করা হয়েছে!");
         loadAccountData();
+        checkLoginState();
     } else {
         alert("দয়া করে একটি নাম লিখুন!");
     }
 }
 
-// অ্যাকাউন্ট ও নিজের সেভ করা নোট লোড করার ফাংশন
+// Password Saving
+function savePassword() {
+    let pwd = document.getElementById('newPasswordInput').value.trim();
+    if(pwd) {
+        localStorage.setItem('portal_user_password', pwd);
+        document.getElementById('passwordStatusMsg').innerText = "পাসওয়ার্ড সফলভাবে সেট করা হয়েছে!";
+        alert("পাসওয়ার্ড সেভ হয়েছে!");
+    } else {
+        alert("দয়া করে পাসওয়ার্ড লিখুন!");
+    }
+}
+
+// Profile Picture Saving
+function saveProfilePic() {
+    let url = document.getElementById('profilePicUrlInput').value.trim();
+    if(url) {
+        localStorage.setItem('portal_profile_pic', url);
+        alert("প্রোফাইল পিকচার আপডেট হয়েছে!");
+        checkLoginState();
+    } else {
+        alert("দয়া করে সঠিক ইমেজ লিংক দিন!");
+    }
+}
+
 function loadAccountData() {
     let nick = localStorage.getItem('portal_user_nickname');
     let displayDiv = document.getElementById('displayCurrentNickname');
@@ -1923,12 +1988,11 @@ function loadAccountData() {
     
     if(nick) {
         displayDiv.innerText = "বর্তমান নেকনেম: " + nick;
-        inputField.value = nick;
+        if(inputField) inputField.value = nick;
     } else {
         displayDiv.innerText = "কোনো নেকনেম সেট করা নেই।";
     }
 
-    // শুধুমাত্র ইউজারের সেভ করা নোটগুলো ফিল্টার করে দেখানো
     let notesListContainer = document.getElementById('myPersonalNotesList');
     let allKeys = [...banglaProseList, ...banglaPoetryList].map(i => i.key);
     allKeys.push('note_bangla2_grammar');
@@ -1940,7 +2004,6 @@ function loadAccountData() {
         let val = localStorage.getItem(key);
         if(val && val.trim() !== "") {
             foundAny = true;
-            // সুন্দর করে নাম বের করার চেষ্টা
             let titleName = key;
             let foundObj = [...banglaProseList, ...banglaPoetryList].find(i => i.key === key);
             if(foundObj) titleName = foundObj.name;
@@ -1980,11 +2043,11 @@ window.addEventListener('DOMContentLoaded', () => {
     renderBangla1Cards();
     renderAttendanceTable();
     loadAccountData();
+    checkLoginState();
     
     history.replaceState({ view: 'home-view' }, '', '');
 });
 
-// ব্যাক বাটন বা অ্যারো বাটনের জন্য হ্যান্ডলার
 window.addEventListener('popstate', (event) => {
     const modals = document.querySelectorAll('.modal-overlay');
     let modalClosed = false;
@@ -2044,11 +2107,6 @@ function showAttendance() {
 
 function showClockCountdown() {
     switchView('clock-countdown-view');
-}
-
-function showAccountNameView() {
-    loadAccountData();
-    switchView('account-name-view');
 }
 
 function switchView(viewId, e, isPop = false) {
@@ -2127,8 +2185,13 @@ function selectFromModal(viewId) {
     closeSubjectModal();
     if (viewId === 'my-notes-view') {
         showMyNotes();
-    } else if (viewId === 'account-name-view') {
-        showAccountNameView();
+    } else if (viewId === 'account-profile-view') {
+        loadAccountData();
+        switchView('account-profile-view');
+    } else if (viewId === 'account-password-view') {
+        switchView('account-password-view');
+    } else if (viewId === 'account-picture-view') {
+        switchView('account-picture-view');
     }
 }
 
