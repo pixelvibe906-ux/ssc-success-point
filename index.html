@@ -913,7 +913,6 @@ h1 {
                 <span class="school-badge">সফলতার নতুন দিগন্ত</span>
             </div>
             
-            <!-- Google Login Section (Permanently hidden after login) -->
             <div style="margin-top: 15px;" id="loginSectionContainer">
                 <button class="google-login-btn" onclick="loginWithGoogle()">
                     <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.63-.06-1.25-.19-1.84H9v3.49h4.84c-.21 1.12-.86 2.07-1.83 2.71v2.26h2.96c1.73-1.59 2.87-3.93 2.87-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.96-2.26c-.83.56-1.88.9-3.0 0-2.3 0-4.25-1.55-4.95-3.64H1.01v2.33C2.5 15.98 5.48 18 9 18z"/><path fill="#FBBC05" d="M4.05 10.82c-.18-.56-.28-1.16-.28-1.82s.1-1.26.28-1.82V4.85H1.01C.37 6.13 0 7.57 0 9s.37 2.87 1.01 4.15l3.04-2.33z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.51.45 3.44 1.34l2.58-2.58C13.47.89 11.43 0 9 0 5.48 0 2.5 2.02 1.01 4.85l3.04 2.33c.7-2.09 2.65-3.6 4.95-3.6z"/></svg>
@@ -981,7 +980,7 @@ h1 {
             <ul class="syllabus-list">
                 <li><strong>বাম দিকের মেনু:</strong> যেকোনো বিষয়ের সিলেবাস ও মানবণ্টন দেখতে পাশের তালিকা থেকে পছন্দের বিষয়ে ক্লিক করো।</li>
                 <li><strong>My Notes:</strong> নিজের পছন্দমতো বিষয়ে গুরুত্বপূর্ণ পয়েন্ট লিখে সেভ করো।</li>
-                <li><strong>Others ড্যাশবোর্ড:</strong> এখান থেকে হাজিরা খাতা এবং লাইভ ডিজিটাল ঘড়ি ও এক্সাম কাউন্টডাউন দেখতে পাবে।</li>
+                <li><strong>Others ড্যাশবোর্ড:</strong> এখান থেকে হাজিরা খাতা, ফর্মুলা ব্যাংক এবং লাইভ ডিজিটাল ঘড়ি দেখতে পাবে।</li>
                 <li><strong>থিম পরিবর্তন:</strong> নিচের ফ্লোটিং বাটন থেকে যেকোনো সময় চমৎকার থিম বদলে নিতে পারো।</li>
             </ul>
         </div>
@@ -1045,6 +1044,10 @@ h1 {
                 <div style="font-size: 1.8rem; margin-bottom: 8px;">📝</div>
                 <h3 style="font-size: 1rem; color: #f472b6;">My Notes</h3>
             </div>
+            <div class="notes-subject-card" onclick="playSound(); showFormulaBank();" style="border: 2px solid #38bdf8;">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">📐</div>
+                <h3 style="font-size: 1rem; color: #38bdf8;">Formula & Rules Bank</h3>
+            </div>
             <div class="notes-subject-card" onclick="playSound(); openRoutineModal();">
                 <div style="font-size: 1.8rem; margin-bottom: 8px;">🗓️</div>
                 <h3 style="font-size: 1rem;">রুটিন</h3>
@@ -1070,6 +1073,21 @@ h1 {
                 <h3 style="font-size: 1rem;">রিসেট</h3>
             </div>
         </div>
+    </div>
+
+    <!-- Formula & Rules Bank View -->
+    <div id="formula-bank-view" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showOthers();">⬅ Others</button>
+        <h1>Formula & Important Rules Bank</h1>
+        <p style="color: var(--text-sub); font-size: 0.95rem; font-weight: 600; margin-bottom: 18px;">গণিত, পদার্থ ও রসায়নের সকল গুরুত্বপূর্ণ অধ্যায়ের সূত্র, ব্যাখ্যা ও উদাহরণ:</p>
+        <div class="notes-subject-grid" id="formulaCategoryGrid"></div>
+    </div>
+
+    <!-- Single Formula Chapter Detail View -->
+    <div id="formula-detail-view" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showFormulaBank();">⬅ Formula Bank</button>
+        <h1 id="formulaDetailTitle">অধ্যায়ের নাম</h1>
+        <div id="formulaDetailContent" style="display: flex; flex-direction: column; gap: 15px;"></div>
     </div>
 
     <!-- Study Progress & Tracker View -->
@@ -1772,7 +1790,6 @@ function playSound() {
     }
 }
 
-// Check Login State and update UI seamlessly
 function checkLoginState() {
     let isLoggedIn = localStorage.getItem('portal_is_logged_in');
     let nick = localStorage.getItem('portal_user_nickname');
@@ -1843,6 +1860,183 @@ function toggleTheme() {
     let selectedTheme = themes[currentThemeIndex];
     document.documentElement.setAttribute('data-theme', selectedTheme);
     localStorage.setItem('portal_theme', selectedTheme);
+}
+
+// Expanded Comprehensive Formula & Rules Database
+const formulaBankData = [
+    {
+        id: "math_real_1",
+        title: "গণিত: ১ম অধ্যায় (বাস্তব সংখ্যা)",
+        icon: "🔢",
+        formulas: [
+            { name: "মূলদ ও অমূলদ সংখ্যা সনাক্তকরণ", formula: "p/q আকারে প্রকাশ", desc: "যেখানে p এবং q পূর্ণসংখ্যা এবং q ≠ 0। অমূলদ সংখ্যাকে সাধারণ ভগ্নাংশে প্রকাশ করা যায় না।", example: "√9 একটি মূলদ সংখ্যা কারণ এর মান 3, কিন্তু √2 একটি অমূলদ সংখ্যা।" }
+        ]
+    },
+    {
+        id: "math_set_2",
+        title: "গণিত: ২য় অধ্যায় (সেট ও ফাংশন)",
+        icon: "🔗",
+        formulas: [
+            { name: "সংযোগ সেট (Union)", formula: "A ∪ B = {x : x ∈ A বা x ∈ B}", desc: "সেট দুটির সকল উপাদান নিয়ে গঠিত সেট।", example: "A = {1, 2} এবং B = {2, 3} হলে A ∪ B = {1, 2, 3}।" },
+            { name: "ছেদ সেট (Intersection)", formula: "A ∩ B = {x : x ∈ A এবং x ∈ B}", desc: "সেট দুটির কমন বা সাধারণ উপাদান নিয়ে গঠিত সেট।", example: "A ∩ B = {2}।" },
+            { name: "শক্তি সেট (Power Set)", formula: "উপাদান সংখ্যা = 2ⁿ", desc: "কোনো সেটের সকল উপসেট নিয়ে গঠিত সেট।", example: "সেটে 3টি উপাদান থাকলে উপসেট হবে 2³ = 8টি।" }
+        ]
+    },
+    {
+        id: "math_algebra_3",
+        title: "গণিত: ৩য় অধ্যায় (বীজগণিতীয় রাশি)",
+        icon: "✖️",
+        formulas: [
+            { name: "বর্গের সূত্র", formula: "(a + b)² = a² + 2ab + b²", desc: "বর্গ নির্ণয় বা মান নির্ণয়ের জন্য ব্যবহৃত।", example: "a=3, b=2 হলে (3+2)² = 25।" },
+            { name: "বর্গের অনুসিদ্ধান্ত", formula: "a² + b² = (a - b)² + 2ab", desc: "মান নির্ণয়ের অংকে সরাসরি ব্যবহৃত হয়।", example: "a-b=3, ab=4 হলে a²+b² = 3² + 2(4) = 17।" },
+            { name: "ঘনের সূত্র", formula: "(a + b)³ = a³ + 3a²b + 3ab² + b³", desc: "ঘন নির্ণয়ের মূল সূত্র।", example: "(x + 1)³ এর বিস্তৃতি।" },
+            { name: "উৎপাদকের সূত্র", formula: "a³ + b³ = (a + b)(a² - ab + b²)", desc: "ঘন সম্পর্কিত উৎপাদকে ব্যবহৃত হয়।", example: "x³ + 8 = (x+2)(x² - 2x + 4)।" }
+        ]
+    },
+    {
+        id: "math_index_4",
+        title: "গণিত: ৪র্থ অধ্যায় (সূচক ও লগারিদম)",
+        icon: "📈",
+        formulas: [
+            { name: "সূচকের গুণন বিধি", formula: "a^m × a^n = a^(m+n)", desc: "ভিত্তি এক হলে পাওয়ার যোগ হয়।", example: "2² × 2³ = 2⁵ = 32।" },
+            { name: "লগ এর গুণের সূত্র", formula: "log_a (m × n) = log_a m + log_a n", desc: "গুণের লগ হলো লোগারিদমগুলোর যোগফল।", example: "log(5 × 2) = log 5 + log 2।" },
+            { name: "লগ এর পাওয়ার সূত্র", formula: "log_a (m^r) = r × log_a m", desc: "পাওয়ার সামনে চলে আসে।", example: "log(x²) = 2 log x।" }
+        ]
+    },
+    {
+        id: "math_geom_7",
+        title: "গণিত: ৭ম অধ্যায় (ব্যবহারিক জ্যামিতি)",
+        icon: "📐",
+        formulas: [
+            { name: "ত্রিভুজের পরিসীমা ও বাহু সম্পর্ক", formula: "যে কোনো দুই বাহুর সমষ্টি তৃতীয় বাহু অপেক্ষা বৃহত্তর", desc: "ত্রিভুজ অঙ্কনের অন্যতম মৌলিক শর্ত।", example: "বাহুগুলো 3cm, 4cm, 6cm হলে 3+4 > 6 (সম্ভব)।" }
+        ]
+    },
+    {
+        id: "math_trig_9",
+        title: "গণিত: ৯ম অধ্যায় (ত্রিকোণমিতিক অনুপাত)",
+        icon: "📉",
+        formulas: [
+            { name: "ত্রিকোণমিতিক অনুপাত", formula: "sin θ = লম্ব / অতিভুজ", desc: "সমকোণী ত্রিভুজের বাহুর অনুপাত।", example: "লম্ব ৩ এবং অতিভুজ ৫ হলে sin θ = 3/5।" },
+            { name: "মৌলিক অভেদ", formula: "sin² θ + cos² θ = 1", desc: "ত্রিকোণমিতির সবচেয়ে বেশি ব্যবহৃত সূত্র।", example: "cos² θ = 1 - sin² θ।" },
+            { name: "sec ও tan সম্পর্ক", formula: "sec² θ - tan² θ = 1", desc: "sec ও tan এর মধ্যকার সূত্র।", example: "sec² θ = 1 + tan² θ।" }
+        ]
+    },
+    {
+        id: "math_mens_16",
+        title: "গণিত: ১৬ অধ্যায় (পরিমিতি)",
+        icon: "⬛",
+        formulas: [
+            { name: "আয়তক্ষেত্রের ক্ষেত্রফল ও পরিসীমা", formula: "ক্ষেত্রফল = দৈর্ঘ্য × প্রস্থ, পরিসীমা = 2(দৈর্ঘ্য + প্রস্থ)", desc: "আয়তক্ষেত্রের মাপজোখ।", example: "দৈর্ঘ্য ৫, প্রস্থ ৩ হলে ক্ষেত্রফল ১৫ এবং পরিসীমা ১৬।" },
+            { name: "বৃত্তের পরিধি ও ক্ষেত্রফল", formula: "পরিধি = 2πr, ক্ষেত্রফল = πr²", desc: "বৃত্ত সংক্রান্ত হিসাব।", example: "ব্যাসার্ধ r = 7 হলে ক্ষেত্রফল = (22/7) × 7² = 154।" },
+            { name: "সমবাহু ত্রিভুজের ক্ষেত্রফল", formula: "ক্ষেত্রফল = (√3 / 4) a²", desc: "a = সমবাহু ত্রিভুজের বাহুর দৈর্ঘ্য।", example: "বাহু ৪ সেমি হলে ক্ষেত্রফল = (√3/4) × 16 = 4√3।" }
+        ]
+    },
+    {
+        id: "math_stat_17",
+        title: "গণিত: ১৭ অধ্যায় (পরিসংখ্যান)",
+        icon: "📊",
+        formulas: [
+            { name: "সংক্ষিপ্ত পদ্ধতিতে গড়", formula: "গড় = a + { (Σfᵢuᵢ) / N } × h", desc: "a = আনুমানিক গড়, h = শ্রেণি ব্যবধান, fᵢuᵢ = ধাপ বিচ্যুতির গুণফল।", example: "সারণि থেকে গাণিতিক গড় নির্ণয়।" },
+            { name: "প্রচুরক নির্ণয়", formula: "প্রচুরক = L + { f₁ / (f₁ + f₂) } × h", desc: "L = প্রচুরক শ্রেণির নিম্নসীমা।", example: "যে শ্রেণিতে গণসংখ্যা সবচেয়ে বেশি তা প্রচুরক শ্রেণি।" },
+            { name: "উপাত্তের পরিসর", formula: "পরিসর = (সর্বোচ্চ মান - সর্বনিম্ন মান) + ১", desc: "পরিসর নির্ণয়ের সূত্র।", example: "সর্বোচ্চ ৯২, সর্বনিম্ন ১২ হলে পরিসর = (92-12)+1 = 81।" }
+        ]
+    },
+    {
+        id: "physics_1",
+        title: "পদার্থবিজ্ঞান: ১ম অধ্যায় (পরিমাপ)",
+        icon: "📏",
+        formulas: [
+            { name: "ঘনত্ব নির্ণয়", formula: "ρ = m / V", desc: "m = ভর, V = আয়তন, ρ = ঘনত্ব।", example: "ভর 50 kg এবং আয়তন 2 m³ হলে ঘনত্ব = 50 / 2 = 25 kg/m³।" }
+        ]
+    },
+    {
+        id: "physics_2",
+        title: "পদার্থবিজ্ঞান: ২য় অধ্যায় (গতি)",
+        icon: "🚀",
+        formulas: [
+            { name: "বেগের সমীকরণ", formula: "v = u + at", desc: "u = আদিবেগ, v = শেষবেগ, a = ত্বরণ, t = সময়।", example: "u=0, a=2 m/s², t=5 s হলে v = 0 + (2×5) = 10 m/s।" },
+            { name: "দূরত্ব বা সরণ", formula: "s = ut + ½at²", desc: "সুষম ত্বরণে অতিক্রান্ত দূরত্ব।", example: "u=0, a=2, t=3 হলে s = 0 + ½(2)(9) = 9 m।" },
+            { name: "শেষবেগের সমীকরণ", formula: "v² = u² + 2as", desc: "দূরত্ব দেওয়া থাকলে শেষবেগ বের করার সূত্র।", example: "u=0, a=2, s=4 হলে v² = 0 + 2(2)(4) = 16 => v = 4 m/s।" }
+        ]
+    },
+    {
+        id: "physics_3",
+        title: "পদার্থবিজ্ঞান: ৩য় অধ্যায় (বল)",
+        icon: "⚡",
+        formulas: [
+            { name: "বলের সমীকরণ", formula: "F = ma", desc: "m = ভর, a = ত্বরণ, F = প্রযুক্ত বল।", example: "ভর 4 kg এবং ত্বরণ 5 m/s² হলে F = 4 × 5 = 20 N।" },
+            { name: "ভরবেগ", formula: "p = mv", desc: "বস্তুর ভর ও বেগের গুণফল।", example: "ভর 3 kg ও বেগ 4 m/s হলে p = 3 × 4 = 12 kg m/s।" }
+        ]
+    },
+    {
+        id: "physics_4",
+        title: "পদার্থবিজ্ঞান: ৪র্থ অধ্যায় (কাজ, ক্ষমতা ও শক্তি)",
+        icon: "💡",
+        formulas: [
+            { name: "কাজের সূত্র", formula: "W = Fs", desc: "F = বল, s = সরণ।", example: "বল 10 N এবং সরণ 5 m হলে W = 10 × 5 = 50 J।" },
+            { name: "গতিশক্তি", formula: "Eₖ = ½ mv²", desc: "গতির কারণে অর্জিত শক্তি।", example: "ভর 2 kg ও বেগ 4 m/s হলে Eₖ = ½ (2) (4²) = 16 J।" },
+            { name: "বিভব শক্তি", formula: "Eₚ = mgh", desc: "অবস্থান পরিবর্তনের ফলে সঞ্চিত শক্তি।", example: "m=2 kg, g=9.8, h=5 m হলে Eₚ = 2 × 9.8 × 5 = 98 J।" },
+            { name: "ক্ষমতা", formula: "P = W / t", desc: "কাজ করার হার হলো ক্ষমতা।", example: "কাজ 100 J এবং সময় 5 s হলে P = 100 / 5 = 20 W।" }
+        ]
+    },
+    {
+        id: "chemistry_5",
+        title: "রসায়ন: ৫ম অধ্যায় (রাসায়নিক বন্ধন)",
+        icon: "🧪",
+        formulas: [
+            { name: "মোল সংখ্যা নির্ণয়", formula: "n = w / M", desc: "w = গ্রামের প্রকাশিত ভর, M = মোলার ভর।", example: "49 গ্রাম H₂SO₄ এর মোল সংখ্যা = 49 / 98 = 0.5 মোল।" },
+            { name: "মোলারিটি (দ্রবণ)", formula: "S = (1000 × w) / (M × V)", desc: "w = দ্রবের ভর, V = মিলিলিটারে আয়তন, S = মোলারিটি।", example: "দ্রবণের ঘনমাত্রা নির্ণয়ের সূত্র।" }
+        ]
+    }
+];
+
+function showFormulaBank() {
+    switchView('formula-bank-view');
+    renderFormulaCategories();
+}
+
+function renderFormulaCategories() {
+    const grid = document.getElementById('formulaCategoryGrid');
+    if(!grid) return;
+    grid.innerHTML = "";
+
+    formulaBankData.forEach(item => {
+        let card = document.createElement('div');
+        card.className = "notes-subject-card";
+        card.style.textAlign = "left";
+        card.style.borderLeft = "5px solid #38bdf8";
+        card.innerHTML = `
+            <div style="font-size: 2rem; margin-bottom: 8px;">${item.icon}</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">${item.title}</div>
+            <div style="font-size: 0.82rem; color: var(--text-sub); margin-top: 6px;">সকল সূত্র ও উদাহরণ দেখতে ক্লিক করুন →</div>
+        `;
+        card.onclick = () => { playSound(); openFormulaDetail(item.id); };
+        grid.appendChild(card);
+    });
+}
+
+function openFormulaDetail(id) {
+    let data = formulaBankData.find(i => i.id === id);
+    if(!data) return;
+
+    document.getElementById('formulaDetailTitle').innerText = data.title;
+    const contentContainer = document.getElementById('formulaDetailContent');
+    contentContainer.innerHTML = "";
+
+    data.formulas.forEach(f => {
+        let box = document.createElement('div');
+        box.className = "hover-card";
+        box.style.borderLeftColor = "#ec4899";
+        box.innerHTML = `
+            <h3 style="color: #f472b6; font-size: 1.1rem; font-weight: 800; margin-bottom: 6px;">${f.name}</h3>
+            <div style="background: rgba(99, 102, 241, 0.15); padding: 10px 14px; border-radius: 8px; font-size: 1.15rem; font-weight: 900; color: #38bdf8; margin-bottom: 8px; border: 1px solid var(--glass-border);">${f.formula}</div>
+            <p style="color: var(--text-sub); font-size: 0.92rem; font-weight: 600; margin-bottom: 6px;"><strong>ব্যাখ্যা:</strong> ${f.desc}</p>
+            <p style="color: var(--text-main); font-size: 0.92rem; font-weight: 600;"><strong>উদাহরণ/ছোট অংক:</strong> ${f.example}</p>
+        `;
+        contentContainer.appendChild(box);
+    });
+
+    switchView('formula-detail-view');
 }
 
 // All 20 Subjects List for Study Tracker
