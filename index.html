@@ -1876,7 +1876,7 @@ function toggleTheme() {
     localStorage.setItem('portal_theme', selectedTheme);
 }
 
-// Professional Formula & Rules Database
+// Professional Formula & Rules Database (Including All Physics Chapters)
 const formulaBankData = [
     {
         id: "math_real_1",
@@ -1957,10 +1957,11 @@ const formulaBankData = [
     },
     {
         id: "physics_1",
-        title: "পদার্থবিজ্ঞান: ১ম অধ্যায় (পরিমাপ)",
+        title: "পদার্থবিজ্ঞান: ১ম অধ্যায় (ভৌত রাশি ও পরিমাপ)",
         icon: "📏",
         formulas: [
-            { name: "ঘনত্ব নির্ণয়", formula: "ρ = m / V", desc: "m = ভর, V = আয়তন, ρ = ঘনত্ব।", example: "ভর 50 kg এবং আয়তন 2 m³ হলে ঘনত্ব = 50 / 2 = 25 kg/m³।" }
+            { name: "ঘনত্ব নির্ণয়", formula: "ρ = m / V", desc: "m = ভর, V = আয়তন, ρ = ঘনত্ব।", example: "ভর 50 kg এবং আয়তন 2 m³ হলে ঘনত্ব = 50 / 2 = 25 kg/m³।" },
+            { name: "ক্ষেত্রফল ও আয়তন পরিমাপ", formula: "ক্ষেত্রফল = দৈর্ঘ্য × প্রস্থ; আয়তন = দৈর্ঘ্য × প্রস্থ × উচ্চতা", desc: "বিভিন্ন জ্যামিতিক আকারের পরিমাপ।", example: "দৈর্ঘ্য 2m, প্রস্থ 3m হলে ক্ষেত্রফল 6 m²।" }
         ]
     },
     {
@@ -1968,9 +1969,11 @@ const formulaBankData = [
         title: "পদার্থবিজ্ঞান: ২য় অধ্যায় (গতি)",
         icon: "🚀",
         formulas: [
-            { name: "বেগের সমীকরণ", formula: "v = u + at", desc: "u = আদিবেগ, v = শেষবেগ, a = ত্বরণ, t = সময়।", example: "u=0, a=2 m/s², t=5 s হলে v = 0 + (2×5) = 10 m/s।" },
-            { name: "দূরত্ব বা সরণ", formula: "s = ut + ½at²", desc: "সুষম ত্বরণে অতিক্রান্ত দূরত্ব।", example: "u=0, a=2, t=3 হলে s = 0 + ½(2)(9) = 9 m।" },
-            { name: "শেষবেগের সমীকরণ", formula: "v² = u² + 2as", desc: "দূরত্ব দেওয়া থাকলে শেষবেগ বের করার সূত্র।", example: "u=0, a=2, s=4 হলে v² = 0 + 2(2)(4) = 16 => v = 4 m/s।" }
+            { name: "দ্রুতি বা বেগ", formula: "v = s / t", desc: "s = সরণ/দূরত্ব, t = সময়, v = বেগ।", example: "দূরত্ব 100m এবং সময় 10s হলে বেগ 10 m/s।" },
+            { name: "ত্বরণ", formula: "a = (v - u) / t", desc: "u = আদিবেগ, v = শেষবেগ, t = সময়।", example: "বেগ বৃদ্ধির হার হলো ত্বরণ।" },
+            { name: "বেগের সমীকরণ", formula: "v = u + at", desc: "সুষম ত্বরণে গতিশীল বস্তুর শেষবেগ।", example: "u=0, a=2, t=5 হলে v = 10 m/s।" },
+            { name: "দূরত্ব বা সরণ", formula: "s = ut + ½at²", desc: "সুষম ত্বরণে অতিক্রান্ত দূরত্ব।", example: "u=0, a=2, t=3 হলে s = 9 m।" },
+            { name: "শেষবেগের সমীকরণ", formula: "v² = u² + 2as", desc: "দূরত্ব দেওয়া থাকলে শেষবেগ বের করার সূত্র।", example: "v² = u² + 2as।" }
         ]
     },
     {
@@ -1978,8 +1981,9 @@ const formulaBankData = [
         title: "পদার্থবিজ্ঞান: ৩য় অধ্যায় (বল)",
         icon: "⚡",
         formulas: [
-            { name: "বলের সমীকরণ", formula: "F = ma", desc: "m = ভর, a = ত্বরণ, F = প্রযুক্ত বল।", example: "ভর 4 kg এবং ত্বরণ 5 m/s² হলে F = 4 × 5 = 20 N।" },
-            { name: "ভরবেগ", formula: "p = mv", desc: "বস্তুর ভর ও বেগের গুণফল।", example: "ভর 3 kg ও বেগ 4 m/s হলে p = 3 × 4 = 12 kg m/s।" }
+            { name: "নিউটনের গতির দ্বিতীয় সূত্র (বল)", formula: "F = ma", desc: "m = ভর, a = ত্বরণ, F = প্রযুক্ত বল।", example: "ভর 4 kg এবং ত্বরণ 5 m/s² হলে F = 20 N।" },
+            { name: "ভরবেগ", formula: "p = mv", desc: "বস্তুর ভর ও বেগের গুণফল।", example: "ভর 3 kg ও বেগ 4 m/s হলে p = 12 kg m/s।" },
+            { name: "বলের ঘাত ও ভরবেগের পরিবর্তন", formula: "F × t = mv - mu", desc: "বলের ঘাত = ভরবেগের পরিবর্তন।", example: "বলের ঘাতের গাণিতিক রূপ।" }
         ]
     },
     {
@@ -1987,10 +1991,102 @@ const formulaBankData = [
         title: "পদার্থবিজ্ঞান: ৪র্থ অধ্যায় (কাজ, ক্ষমতা ও শক্তি)",
         icon: "💡",
         formulas: [
-            { name: "কাজের সূত্র", formula: "W = Fs", desc: "F = বল, s = সরণ।", example: "বল 10 N এবং সরণ 5 m হলে W = 10 × 5 = 50 J।" },
-            { name: "গতিশক্তি", formula: "Eₖ = ½ mv²", desc: "গতির কারণে অর্জিত শক্তি।", example: "ভর 2 kg ও বেগ 4 m/s হলে Eₖ = ½ (2) (4²) = 16 J।" },
-            { name: "বিভব শক্তি", formula: "Eₚ = mgh", desc: "অবস্থান পরিবর্তনের ফলে সঞ্চিত শক্তি।", example: "m=2 kg, g=9.8, h=5 m হলে Eₚ = 2 × 9.8 × 5 = 98 J।" },
-            { name: "ক্ষমতা", formula: "P = W / t", desc: "কাজ করার হার হলো ক্ষমতা।", example: "কাজ 100 J এবং সময় 5 s হলে P = 100 / 5 = 20 W।" }
+            { name: "কাজের সূত্র", formula: "W = Fs", desc: "F = বল, s = সরণ।", example: "বল 10 N এবং সরণ 5 m হলে W = 50 J।" },
+            { name: "গতিশক্তি", formula: "Eₖ = ½ mv²", desc: "গতির কারণে অর্জিত শক্তি।", example: "ভর 2 kg ও বেগ 4 m/s হলে Eₖ = 16 J।" },
+            { name: "বিভব শক্তি", formula: "Eₚ = mgh", desc: "অবস্থান পরিবর্তনের ফলে সঞ্চিত শক্তি।", example: "m=2, g=9.8, h=5 হলে Eₚ = 98 J।" },
+            { name: "ক্ষমতা", formula: "P = W / t", desc: "কাজ করার হার হলো ক্ষমতা।", example: "কাজ 100 J এবং সময় 5 s হলে P = 20 W।" },
+            { name: "কর্মদক্ষতা", formula: "η = (লব্ধ কার্যকর শক্তি / মোট প্রদত্ত শক্তি) × 100%", desc: "যন্ত্রের দক্ষতা নির্ণয়।", example: "দক্ষতা শতকরা হিসেবে প্রকাশ।" }
+        ]
+    },
+    {
+        id: "physics_5",
+        title: "পদার্থবিজ্ঞান: ৫ম অধ্যায় (স্তাবকতা ও চাপ)",
+        icon: "🌊",
+        formulas: [
+            { name: "চাপ নির্ণয়", formula: "P = F / A", desc: "F = বল, A = ক্ষেত্রফল, P = চাপ।", example: "বল 100 N এবং ক্ষেত্রফল 2 m² হলে চাপ 50 Pa।" },
+            { name: "তরল অভ্যন্তরে চাপ", formula: "P = hρg", desc: "h = গভীরতা, ρ = ঘনত্ব, g = অভিকর্ষজ ত্বরণ।", example: "পানির গভীরতা বাড়লে চাপ বাড়ে।" },
+            { name: "আর্কিমিডিসের সূত্র (প্লবতা)", formula: "F_b = Vρg", desc: "অপসারিত তরলের ওজনই হলো প্লবতা।", example: "বস্তুর ভাসমান বা নিমজ্জিত হওয়ার শর্ত।" }
+        ]
+    },
+    {
+        id: "physics_6",
+        title: "পদার্থবিজ্ঞান: ৬ষ্ঠ অধ্যায় (বস্তুর ওপর তাপের প্রভাব)",
+        icon: "🔥",
+        formulas: [
+            { name: "তাপমাত্রা পরিমাপ স্কেল রূপান্তর", formula: "(C / 5) = (F - 32) / 9 = (K - 273) / 5", desc: "সেলসিয়াস, ফারেনহাইট ও কেলভিন স্কেলের সম্পর্ক।", example: "C = 100 হলে F = 212।" },
+            { name: "আপেক্ষিক তাপ", formula: "Q = msΔT", desc: "m = ভর, s = আপেক্ষিক তাপ, ΔT = তাপমাত্রার পরিবর্তন।", example: "তাপ প্রয়োগে তাপমাত্রা বৃদ্ধির হিসাব।" },
+            { name: "সুপ্ততাপ", formula: "Q = mL", desc: "অবস্থা পরিবর্তনের তাপ (L = গলন বা বাষ্পীভবনের সুপ্ততাপ)।", example: "বরফ গলনের সুপ্ততাপ।" }
+        ]
+    },
+    {
+        id: "physics_7",
+        title: "পদার্থবিজ্ঞান: ৭ম অধ্যায় (শব্দ ও তরঙ্গ)",
+        icon: "🎵",
+        formulas: [
+            { name: "তরঙ্গ বেগ", formula: "v = fλ", desc: "f = কম্পাঙ্ক, λ = তরঙ্গদৈর্ঘ্য, v = বেগ।", example: "কম্পাঙ্ক 50 Hz ও তরঙ্গদৈর্ঘ্য 2m হলে বেগ 100 m/s।" },
+            { name: "শব্দের বেগ নির্ণয় (প্রতিধ্বনি)", formula: "2d = vt", desc: "d = দূরত্ব, v = শব্দের বেগ, t = সময়।", example: "প্রতিধ্বনি শোনার ন্যূনতম দূরত্ব নির্ণয়।" }
+        ]
+    },
+    {
+        id: "physics_8",
+        title: "পদার্থবিজ্ঞান: ৮ম অধ্যায় (আলোর প্রতিফলন)",
+        icon: "🔦",
+        formulas: [
+            { name: "বক্রতার ব্যাসার্ধ ও ফোকাস দূরত্ব", formula: "f = R / 2", desc: "R = বক্রতার ব্যাসার্ধ, f = ফোকাস দূরত্ব।", example: "ব্যাসার্ধ 20 cm হলে ফোকাস দূরত্ব 10 cm।" },
+            { name: "দর্পণ বা লেন্সের সূত্র", formula: "(1 / f) = (1 / u) + (1 / v)", desc: "u = বস্তু দূরত্ব, v = প্রতিবিম্ব দূরত্ব।", example: "বিম্বের অবস্থান নির্ণয়।" },
+            { name: "রৈখিক বিবর্ধন", formula: "m = (v / u) = (h_i / h_o)", desc: "প্রতিবিম্বের উচ্চতা ও বস্তুর উচ্চতার অনুপাত।", example: "বিবর্ধন 2 হলে বিম্ব দ্বিগুণ বড় হবে।" }
+        ]
+    },
+    {
+        id: "physics_9",
+        title: "পদার্থবিজ্ঞান: ৯ম অধ্যায় (আলোর প্রতিসরণ)",
+        icon: "🔍",
+        formulas: [
+            { name: "সেলের প্রতিসরাঙ্ক (স্নেলের সূত্র)", formula: "n = (sin i / sin r)", desc: "i = আপাতন কোণ, r = প্রতিসরণ কোণ।", example: "আলোর প্রতিসরণের সূত্র।" },
+            { name: "পরম প্রতিসরাঙ্ক", formula: "n = c / v", desc: "c = শূন্য মাধ্যমে আলোর বেগ, v = মাধ্যমে আলোর বেগ।", example: "মাধ্যমে আলোর গতি হিসাব।" }
+        ]
+    },
+    {
+        id: "physics_10",
+        title: "পদার্থবিজ্ঞান: ১০ম অধ্যায় (স্থির বিদ্যুৎ)",
+        icon: "⚡",
+        formulas: [
+            { name: "কুলম্বের সূত্র", formula: "F = k * (q₁q₂ / d²)", desc: "q₁, q₂ = আধান, d = দূরত্ব।", example: "আধান দুটির মধ্যকার বল।" },
+            { name: "বৈদ্যুতিক বিভব", formula: "V = W / Q", desc: "W = কাজ, Q = আধান, V = বিভব।", example: "বিভব পার্থক্য নির্ণয়।" }
+        ]
+    },
+    {
+        id: "physics_11",
+        title: "পদার্থবিজ্ঞান: ১১তম অধ্যায় (চলবিদ্যুৎ)",
+        icon: "🔋",
+        formulas: [
+            { name: "ওমের সূত্র", formula: "V = IR", desc: "I = তড়িৎ প্রবাহ, R = রোধ, V = বিভব পার্থক্য।", example: "কারেন্ট ও ভোল্টেজের হিসাব।" },
+            { name: "রোধের সমবায়", formula: "শ্রেণি: R = R₁ + R₂; সমান্তরাল: (1/R) = (1/R₁) + (1/R₂)", desc: "একাধিক রোধের তুল্য রোধ নির্ণয়।", example: "সার্কিটে রোধ হিসাব।" },
+            { name: "বিদ্যুৎ ক্ষমতা ও শক্তি", formula: "P = VI = I²R = (V² / R); W = Pt", desc: "ব্যবহৃত বিদ্যুৎ শক্তি বা ইউনিট হিসাব।", example: "বিলের হিসাব।" }
+        ]
+    },
+    {
+        id: "physics_12",
+        title: "পদার্থবিজ্ঞান: ১২তম অধ্যায় (বিদ্যুৎ চৌম্বক ক্রিয়া)",
+        icon: "🧲",
+        formulas: [
+            { name: "ট্রান্সফরমার রূপান্তর সূত্র", formula: "(V_s / V_p) = (N_s / N_p) = (I_p / I_s)", desc: "V = ভোল্টেজ, N = পাক সংখ্যা, s = গৌণ, p = মুখ্য।", example: "ভোল্টেজ পরিবর্তনের হিসাব।" }
+        ]
+    },
+    {
+        id: "physics_13",
+        title: "পদার্থবিজ্ঞান: ১৩তম অধ্যায় (আধুনিক পদার্থবিজ্ঞান ও ইলেকট্রনিক্স)",
+        icon: "💻",
+        formulas: [
+            { name: "আইনস্টাইনের ভর-শক্তি সমীকরণ", formula: "E = mc²", desc: "m = ভর, c = আলোর বেগ, E = শক্তি।", example: "ভর থেকে শক্তি রূপান্তর।" }
+        ]
+    },
+    {
+        id: "physics_14",
+        title: "পদার্থবিজ্ঞান: ১৪তম অধ্যায় (জীবন বাঁচাতে পদার্থবিজ্ঞান)",
+        icon: "🏥",
+        formulas: [
+            { name: "রক্তচাপ ও ইসিজি ধারণা", formula: "পরিমাপক একক: mmHg", desc: "চিকিৎসা বিজ্ঞানে ব্যবহৃত ফিজিক্সের প্রয়োগ।", example: "রক্তচাপ পরিমাপ।" }
         ]
     },
     {
@@ -1998,7 +2094,7 @@ const formulaBankData = [
         title: "রসায়ন: ৫ম অধ্যায় (রাসায়নিক বন্ধন)",
         icon: "🧪",
         formulas: [
-            { name: "মোল সংখ্যা নির্ণয়", formula: "n = w / M", desc: "w = গ্রামের প্রকাশিত ভর, M = মোলার ভর।", example: "49 গ্রাম H₂SO₄ এর মোল সংখ্যা = 49 / 98 = 0.5 মোল।" },
+            { name: "মোল সংখ্যা নির্ণয়", formula: "n = w / M", desc: "w = গ্রামের প্রকাশিত ভর, M = মোলার ভর।", example: "49 গ্রাম H₂SO₄ এর মোল সংখ্যা = 0.5 মোল।" },
             { name: "মোলারিটি (দ্রবণ)", formula: "S = (1000 × w) / (M × V)", desc: "w = দ্রবের ভর, V = মিলিলিটারে আয়তন, S = মোলারিটি।", example: "দ্রবণের ঘনমাত্রা নির্ণয়ের সূত্র।" }
         ]
     }
@@ -2020,497 +2116,181 @@ function renderFormulaCategories() {
         card.style.textAlign = "left";
         card.style.borderLeft = "5px solid #38bdf8";
         card.innerHTML = `
-            <div style="font-size: 2rem; margin-bottom: 8px;">${item.icon}</div>
-            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">${item.title}</div>
-            <div style="font-size: 0.82rem; color: var(--text-sub); margin-top: 6px;">সকল সূত্র ও উদাহরণ দেখতে ক্লিক করুন →</div>
+            <div style="font-size: 1.5rem; margin-bottom: 8px;">${item.icon}</div>
+            <h3 style="font-size: 1rem; color: #38bdf8; margin-bottom: 5px;">${item.title}</h3>
+            <p style="font-size: 0.85rem; color: var(--text-sub);">সূত্র দেখতে ক্লিক করো</p>
         `;
-        card.onclick = () => { playSound(); openFormulaDetail(item.id); };
+        card.onclick = () => { playSound(); showFormulaDetail(item.id); };
         grid.appendChild(card);
     });
 }
 
-function openFormulaDetail(id) {
-    let data = formulaBankData.find(i => i.id === id);
+function showFormulaDetail(id) {
+    let data = formulaBankData.find(x => x.id === id);
     if(!data) return;
 
     document.getElementById('formulaDetailTitle').innerText = data.title;
-    const contentContainer = document.getElementById('formulaDetailContent');
-    contentContainer.innerHTML = "";
+    let contentDiv = document.getElementById('formulaDetailContent');
+    contentDiv.innerHTML = "";
 
     data.formulas.forEach(f => {
         let box = document.createElement('div');
         box.className = "hover-card";
         box.style.borderLeftColor = "#ec4899";
         box.innerHTML = `
-            <h3 style="color: #f472b6; font-size: 1.1rem; font-weight: 800; margin-bottom: 6px;">${f.name}</h3>
-            <div style="background: rgba(99, 102, 241, 0.15); padding: 10px 14px; border-radius: 8px; font-size: 1.15rem; font-weight: 900; color: #38bdf8; margin-bottom: 8px; border: 1px solid var(--glass-border);">${f.formula}</div>
-            <p style="color: var(--text-sub); font-size: 0.92rem; font-weight: 600; margin-bottom: 6px;"><strong>ব্যাখ্যা:</strong> ${f.desc}</p>
-            <p style="color: var(--text-main); font-size: 0.92rem; font-weight: 600;"><strong>উদাহরণ/ছোট অংক:</strong> ${f.example}</p>
+            <h3 style="color: #f472b6; font-size: 1.1rem; margin-bottom: 8px; font-weight: 800;">${f.name}</h3>
+            <div style="background: rgba(0,0,0,0.2); padding: 10px 14px; border-radius: 8px; font-family: monospace; font-size: 1.1rem; color: #38bdf8; margin-bottom: 8px; font-weight: bold;">${f.formula}</div>
+            <p style="color: var(--text-main); font-size: 0.92rem; margin-bottom: 6px; font-weight: 600;"><strong>ব্যাখ্যা:</strong> ${f.desc}</p>
+            <p style="color: var(--text-sub); font-size: 0.88rem; font-weight: 600;"><strong>উদাহরণ:</strong> ${f.example}</p>
         `;
-        contentContainer.appendChild(box);
+        contentDiv.appendChild(box);
     });
 
     switchView('formula-detail-view');
 }
 
-// All 20 Subjects List for Study Tracker
-const studySubjectsList = [
-    { name: "১. বাংলা ১ম পত্র", key: "tracker_bangla1" },
-    { name: "২. বাংলা ২য় পত্র", key: "tracker_bangla2" },
-    { name: "৩. ইংরেজি ১ম পত্র", key: "tracker_english1" },
-    { name: "৪. ইংরেজি ২য় পত্র", key: "tracker_english2" },
-    { name: "৫. গণিত", key: "tracker_math" },
-    { name: "৬. উচ্চতর গণিত", key: "tracker_higher_math" },
-    { name: "৭. পদার্থবিজ্ঞান", key: "tracker_physics" },
-    { name: "৮. রসায়ন", key: "tracker_chemistry" },
-    { name: "৯. জীববিজ্ঞান", key: "tracker_biology" },
-    { name: "১০. বাংলাদেশ ও বিশ্বপরিচয়", key: "tracker_bgs" },
-    { name: "১১. ধর্ম ও নৈতিক শিক্ষা", key: "tracker_islam" },
-    { name: "১২. তথ্য ও যোগাযোগ প্রযুক্তি", key: "tracker_ict" },
-    { name: "১৩. ইতিহাস ও বিশ্বসভ্যতা", key: "tracker_history" },
-    { name: "১৪. ভূগোল ও পরিবেশ", key: "tracker_geography" },
-    { name: "১৫. পৌরনীতি ও নাগরিকতা", key: "tracker_civics" },
-    { name: "১৬. অর্থনীতি", key: "tracker_economics" },
-    { name: "১৭. হিসাববিজ্ঞান", key: "tracker_accounting" },
-    { name: "১৮. ফিন্যান্স ও ব্যাংকিং", key: "tracker_finance" },
-    { name: "১৯. ব্যবসায় উদ্যোগ", key: "tracker_business" },
-    { name: "২০. কৃষি শিক্ষা", key: "tracker_agriculture" }
-];
-
-function renderStudyProgressTracker() {
-    const container = document.getElementById('studyProgressList');
-    if (!container) return;
-    container.innerHTML = "";
-
-    studySubjectsList.forEach(sub => {
-        let isChecked = localStorage.getItem(sub.key) === 'true';
-        let div = document.createElement('div');
-        div.style.cssText = "display: flex; align-items: center; justify-content: space-between; background: var(--glass-card); padding: 12px 15px; border-radius: 10px; border: 1px solid var(--glass-border);";
-        div.innerHTML = `
-            <span style="font-size: 0.98rem; font-weight: 700; color: var(--text-main);">${sub.name}</span>
-            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="saveStudyProgress('${sub.key}', this)" style="accent-color: #10b981; transform: scale(1.3);">
-                <span style="font-size: 0.88rem; font-weight: 800; color: ${isChecked ? '#34d399' : '#ef4444'};">${isChecked ? 'পড়া শেষ' : 'বাকি আছে'}</span>
-            </label>
-        `;
-        container.appendChild(div);
-    });
-}
-
-function saveStudyProgress(key, checkbox) {
-    localStorage.setItem(key, checkbox.checked);
-    let span = checkbox.nextElementSibling;
-    if (checkbox.checked) {
-        span.style.color = "#34d399";
-        span.innerText = "পড়া শেষ";
-    } else {
-        span.style.color = "#ef4444";
-        span.innerText = "বাকি আছে";
-    }
-    playSound();
-}
-
-// Bangla Prose & Poetry
-const banglaProseList = [
-    { name: "প্রত্যুপকার", key: "note_protupokar" },
-    { name: "ফুলের বিবাহ", key: "note_fulerbbibah" },
-    { name: "শুভা", key: "note_shova" },
-    { name: "লাইব্রেরি", key: "note_library" },
-    { name: "বই পড়া", key: "note_boipora" },
-    { name: "অভাগীর স্বর্গ", key: "note_abhagirsehorgo" },
-    { name: "নিরীহ বাঙালি", key: "note_nireehbangali" },
-    { name: "পল্লিসাহিত্য", key: "note_pollisahitto" },
-    { name: "উদ্যম ও পরিশ্রম", key: "note_uddomoporisrom" },
-    { name: "জীবনে শিল্পের স্থান", key: "note_jiboneshilpessthan" },
-    { name: "আম-আঁটির ভেঁপু", key: "note_amartirvepu" },
-    { name: "মানুষ মুহম্মদ (স.)", key: "note_manushmuhammad" },
-    { name: "উপেক্ষিত শক্তির উদ্বোধন", key: "note_upekkhitoshoktir" },
-    { name: "নিমগাছ", key: "note_nimgach" },
-    { name: "শিক্ষা ও মনুষ্যত্ব", key: "note_shikkhaomonushshotto" },
-    { name: "প্রবাস বন্ধু", key: "note_probashbondhu" },
-    { name: "মমতাধি", key: "note_momotadhi" },
-    { name: "রুনমানুষ", key: "note_runmanush" },
-    { name: "একাত্তরের দিনগুলি", key: "note_ekattorerdinguli" },
-    { name: "স্বাধীনতা আমার স্বাধীনতা", key: "note_shadhinotaamar" },
-    { name: "একুশের গল্প", key: "note_ekushergolpo" },
-    { name: "আমাদের সংস্কৃতি", key: "note_amardeshishongskriti" },
-    { name: "সাহিত্যের রূপ ও রীতি", key: "note_sahitterruporiti" },
-    { name: "বাংলা শব্দ", key: "note_banglashobdho" },
-    { name: "আমাদের নতুন গৌরবগাথা", key: "note_amardeshinotungourob" }
-];
-
-const banglaPoetryList = [
-    { name: "বন্দনা", key: "note_bondona" },
-    { name: "হামদ", key: "note_hamd" },
-    { name: "বঙ্গবাণী", key: "note_bongobani" },
-    { name: "কপোতাক্ষ নদ", key: "note_kopotakkonod" },
-    { name: "জীবন-সংগীত", key: "note_jibonshongit" },
-    { name: "প্রাণ", key: "note_pran" },
-    { name: "জুতা-আবিষ্কার", key: "note_jutaabishkar" },
-    { name: "অন্ধবধূ", key: "note_ondhobodhu" },
-    { name: "ঝরনার গান", key: "note_jhornarngan" },
-    { name: "ছায়াবাজি", key: "note_chayabaji" },
-    { name: "জীবন বিনিময়", key: "note_jibonbinimoy" },
-    { name: "মানুষ", key: "note_manush" },
-    { name: "উমর ফারুক", key: "note_omoruforuk" },
-    { name: "সেইদিন এই মাঠ", key: "note_seidinashimath" },
-    { name: "যাব আমি তোমার দেশে", key: "note_jabamitomardeshe" },
-    { name: "একটি কাফি", key: "note_ektikafi" },
-    { name: "আমার দেশ", key: "note_amardesh" },
-    { name: "আমি কোনো আগন্তুক নই", key: "note_amikonoagontuk" },
-    { name: "বৃষ্টি", key: "note_brishti" },
-    { name: "মে-দিনের কবিতা", key: "note_medinerkobita" },
-    { name: "আশা", key: "note_asha" },
-    { name: "পোস্টার", key: "note_poster" },
-    { name: "রানার", key: "note_ranar" },
-    { name: "তোমাকে পাওয়ার জন্যে, হে স্বাধীনতা", key: "note_tomakepawarnjone" },
-    { name: "অবাক পৃথিবী", key: "note_obakprithibi" },
-    { name: "বোশেখে", key: "note_boshekhe" },
-    { name: "চুনিয়া আমার আর্কেডিয়া", key: "note_chuniaamar" },
-    { name: "মিছিল", key: "note_michil" }
-];
-
-let activeSingleNoteKey = "";
-
-function renderBangla1Cards() {
-    const proseGrid = document.getElementById('bangla1ProseGrid');
-    const poetryGrid = document.getElementById('bangla1PoetryGrid');
-    
-    if (proseGrid) {
-        proseGrid.innerHTML = "";
-        banglaProseList.forEach(item => {
-            let card = document.createElement('div');
-            card.className = "notes-subject-card";
-            card.style.textAlign = "left";
-            card.style.borderLeft = "4px solid #38bdf8";
-            card.innerHTML = `<div style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">${item.name}</div><div style="font-size: 0.82rem; color: var(--text-sub); margin-top: 5px;">নোটস দেখতে ক্লিক করুন →</div>`;
-            card.onclick = () => { playSound(); openSingleNoteInterface(item.name, item.key); };
-            proseGrid.appendChild(card);
-        });
-    }
-
-    if (poetryGrid) {
-        poetryGrid.innerHTML = "";
-        banglaPoetryList.forEach(item => {
-            let card = document.createElement('div');
-            card.className = "notes-subject-card";
-            card.style.textAlign = "left";
-            card.style.borderLeft = "4px solid #f472b6";
-            card.innerHTML = `<div style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">${item.name}</div><div style="font-size: 0.82rem; color: var(--text-sub); margin-top: 5px;">নোটস দেখতে ক্লিক করুন →</div>`;
-            card.onclick = () => { playSound(); openSingleNoteInterface(item.name, item.key); };
-            poetryGrid.appendChild(card);
-        });
-    }
-}
-
-function openSingleNoteInterface(title, key) {
-    activeSingleNoteKey = key;
-    document.getElementById('singleNoteTitle').innerText = "বাংলা ১ম পত্র - " + title;
-    document.getElementById('singleNoteSubtitle').innerText = title + " (নোট ও পয়েন্ট)";
-    
-    const textarea = document.getElementById('singleNoteTextarea');
-    let saved = localStorage.getItem(key);
-    textarea.value = saved ? saved : "";
-    
-    history.pushState({ view: 'single-note-interface' }, '', '');
-    
-    document.querySelectorAll('.subject-view').forEach(el => el.style.display = 'none');
-    document.getElementById('single-note-interface').style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function saveActiveSingleNote() {
-    const textarea = document.getElementById('singleNoteTextarea');
-    if (activeSingleNoteKey) {
-        localStorage.setItem(activeSingleNoteKey, textarea.value);
-    }
-}
-
-// Professional Nickname & Profile Management
-function saveNickname() {
-    let nick = document.getElementById('userNicknameInput').value.trim();
-    if(nick) {
-        localStorage.setItem('portal_user_nickname', nick);
-        localStorage.setItem('portal_is_logged_in', 'true');
-        loadAccountData();
-        checkLoginState();
-        alert("প্রোফাইল নেম সফলভাবে আপডেট করা হয়েছে!");
-    } else {
-        alert("দয়া করে একটি নাম লিখুন!");
-    }
-}
-
-// Professional Password Manager
-function savePassword() {
-    let pwd = document.getElementById('newPasswordInput').value.trim();
-    if(pwd) {
-        localStorage.setItem('portal_user_password', pwd);
-        document.getElementById('passwordStatusMsg').innerText = "পাসওয়ার্ড সফলভাবে এনক্রিপ্ট ও সেভ হয়েছে!";
-    } else {
-        alert("দয়া করে নতুন পাসওয়ার্ড লিখুন!");
-    }
-}
-
-// Professional Profile Picture Management
-function saveProfilePic() {
-    let url = document.getElementById('profilePicUrlInput').value.trim();
-    if(url) {
-        localStorage.setItem('portal_profile_pic', url);
-        checkLoginState();
-        loadAccountData();
-        alert("প্রোফাইল ছবি সফলভাবে আপডেট করা হয়েছে!");
-    } else {
-        alert("দয়া করে সঠিক ইমেজ লিংক দিন!");
-    }
-}
-
-function loadAccountData() {
-    let nick = localStorage.getItem('portal_user_nickname');
-    let email = localStorage.getItem('portal_logged_email');
-    let pic = localStorage.getItem('portal_profile_pic');
-
-    let displayDiv = document.getElementById('displayCurrentNickname');
-    let inputField = document.getElementById('userNicknameInput');
-    let cardTitle = document.getElementById('profileCardTitleName');
-    let cardEmail = document.getElementById('profileCardEmail');
-    let avatarPreview = document.getElementById('profileAvatarPreview');
-    let picInput = document.getElementById('profilePicUrlInput');
-
-    if(nick) {
-        if(displayDiv) displayDiv.innerText = "বর্তমান নেকনেম: " + nick;
-        if(inputField) inputField.value = nick;
-        if(cardTitle) cardTitle.innerText = nick;
-    } else {
-        if(displayDiv) displayDiv.innerText = "কোনো নেকনেম সেট করা নেই।";
-        if(cardTitle) cardTitle.innerText = "অ্যাকাউন্ট ব্যবহারকারী";
-    }
-
-    if(email) {
-        if(cardEmail) cardEmail.innerText = "ইমেল: " + email;
-    } else {
-        if(cardEmail) cardEmail.innerText = "ইমেল: guest@portal.edu";
-    }
-
-    if(pic) {
-        if(avatarPreview) avatarPreview.innerHTML = `<img src="${pic}" alt="Avatar" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
-        if(picInput) picInput.value = pic;
-    }
-
-    let notesListContainer = document.getElementById('myPersonalNotesList');
-    let allKeys = [...banglaProseList, ...banglaPoetryList].map(i => i.key);
-    allKeys.push('note_bangla2_grammar');
-    
-    let savedNotesHTML = "";
-    let foundAny = false;
-
-    allKeys.forEach(key => {
-        let val = localStorage.getItem(key);
-        if(val && val.trim() !== "") {
-            foundAny = true;
-            let titleName = key;
-            let foundObj = [...banglaProseList, ...banglaPoetryList].find(i => i.key === key);
-            if(foundObj) titleName = foundObj.name;
-            else if(key === 'note_bangla2_grammar') titleName = "বাংলা ২য় পত্র ব্যাকরণ";
-
-            savedNotesHTML += `<div style="background: var(--glass-card); padding: 10px; border-radius: 8px; margin-bottom: 8px; border: 1px solid var(--glass-border);">
-                <strong style="color: #38bdf8;">${titleName}:</strong> <p style="color: var(--text-main); margin-top: 4px; white-space: pre-wrap;">${val}</p>
-            </div>`;
-        }
-    });
-
-    if(foundAny) {
-        notesListContainer.innerHTML = savedNotesHTML;
-    } else {
-        notesListContainer.innerHTML = "আপনার কোনো নোট সেভ করা নেই।";
-    }
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-    let savedTheme = localStorage.getItem('portal_theme') || 'default';
-    let themeIdx = themes.indexOf(savedTheme);
-    if (themeIdx !== -1) {
-        currentThemeIndex = themeIdx;
-    }
-    document.documentElement.setAttribute('data-theme', themes[currentThemeIndex]);
-    
-    const allKeys = [...banglaProseList, ...banglaPoetryList].map(i => i.key);
-    allKeys.push('note_bangla2_grammar');
-    
-    allKeys.forEach(key => {
-        let saved = localStorage.getItem(key);
-        if(saved && document.getElementById(key)) {
-            document.getElementById(key).value = saved;
-        }
-    });
-
-    renderBangla1Cards();
-    renderAttendanceTable();
-    renderStudyProgressTracker();
-    loadAccountData();
-    checkLoginState();
-    
-    history.replaceState({ view: 'home-view' }, '', '');
-});
-
-window.addEventListener('popstate', (event) => {
-    const modals = document.querySelectorAll('.modal-overlay');
-    let modalClosed = false;
-    modals.forEach(m => {
-        if (m.style.display === 'flex') {
-            m.style.display = 'none';
-            modalClosed = true;
-        }
-    });
-    if (modalClosed) return;
-
-    if (event.state && event.state.view) {
-        switchView(event.state.view, null, true);
-    } else {
-        showHome();
-    }
-});
-
-function goBackState() {
-    window.history.back();
-}
-
-function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-    sidebar.classList.toggle('open');
-    if (sidebar.classList.contains('open')) {
-        overlay.style.display = 'block';
-    } else {
-        overlay.style.display = 'none';
-    }
-}
-
-function showHome(e) {
-    switchView('home-view', e);
-}
-
-function showMyNotes(e) {
-    switchView('my-notes-view', e);
-}
-
-function showOthers(e) {
-    switchView('others-view', e);
-}
-
-function showSubject(subjectId, e) {
-    switchView(subjectId, e);
-}
-
-function showSubjectNotes(sectionId) {
-    switchView(sectionId);
-}
-
-function showAttendance() {
-    switchView('attendance-view');
-}
-
-function showStudyProgress() {
-    switchView('study-progress-view');
-}
-
-function showClockCountdown() {
-    switchView('clock-countdown-view');
-}
-
-function switchView(viewId, e, isPop = false) {
+function switchView(viewId) {
     document.querySelectorAll('.subject-view').forEach(el => {
         el.style.display = 'none';
         el.classList.remove('animate-view');
     });
-    
-    const target = document.getElementById(viewId);
-    if (target) {
+    let target = document.getElementById(viewId);
+    if(target) {
         target.style.display = 'block';
         target.classList.add('animate-view');
-    }
-    
-    if (!isPop) {
-        history.pushState({ view: viewId }, '', '');
-    }
-    
-    if (e && e.target) {
-        document.querySelectorAll('.sidebar ul li button').forEach(btn => btn.classList.remove('active'));
-        e.target.classList.add('active');
-    }
-    
-    if (window.innerWidth < 900) {
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
-        if (sidebar && sidebar.classList.contains('open')) {
-            sidebar.classList.remove('open');
-            if (overlay) overlay.style.display = 'none';
-        }
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function filterSidebarMenu() {
-    let query = document.getElementById('liveSearchInput').value.toLowerCase();
-    let list = document.getElementById('sidebarMenuList');
-    let items = list.getElementsByTagName('li');
-    
-    for (let i = 0; i < items.length; i++) {
-        let btn = items[i].getElementsByTagName('button')[0];
-        if (btn) {
-            let text = btn.innerText.toLowerCase();
-            if (text.includes(query)) {
-                items[i].style.display = "";
-            } else {
-                items[i].style.display = "none";
-            }
-        }
+function showHome() { switchView('home-view'); }
+function showMyNotes() { switchView('my-notes-view'); }
+function showOthers() { switchView('others-view'); }
+function showStudyProgress() { switchView('study-progress-view'); renderStudyProgressList(); }
+function showClockCountdown() { switchView('clock-countdown-view'); }
+function showAttendance() { switchView('attendance-view'); renderAttendanceTable(); }
+
+function showSubject(id, event) {
+    switchView(id);
+    if(event) {
+        document.querySelectorAll('.sidebar ul li button').forEach(b => b.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+    }
+    if(window.innerWidth < 900) {
+        toggleSidebar();
+    }
+}
+
+function toggleSidebar() {
+    let sidebar = document.getElementById('sidebar');
+    let overlay = document.getElementById('overlay');
+    sidebar.classList.toggle('open');
+    if(overlay) {
+        overlay.style.display = sidebar.classList.contains('open') ? 'block' : 'none';
     }
 }
 
 function openSubjectModal() {
     document.getElementById('subjectModal').style.display = 'flex';
 }
-
 function closeSubjectModal() {
     document.getElementById('subjectModal').style.display = 'none';
 }
-
 function openRoutineModal() {
     document.getElementById('routineModal').style.display = 'flex';
 }
-
 function closeRoutineModal() {
     document.getElementById('routineModal').style.display = 'none';
 }
-
 function closeModalOnOutsideClick(event, modalId) {
-    if (event.target.id === modalId) {
+    if(event.target.id === modalId) {
         document.getElementById(modalId).style.display = 'none';
     }
 }
-
 function selectFromModal(viewId) {
     closeSubjectModal();
-    if (viewId === 'my-notes-view') {
-        showMyNotes();
-    } else if (viewId === 'account-profile-view') {
-        loadAccountData();
-        switchView('account-profile-view');
-    } else if (viewId === 'account-password-view') {
-        switchView('account-password-view');
-    } else if (viewId === 'account-picture-view') {
-        loadAccountData();
-        switchView('account-picture-view');
+    playSound();
+    if(viewId === 'my-notes-view') showMyNotes();
+    else if(viewId === 'account-profile-view') switchView('account-profile-view');
+    else if(viewId === 'account-password-view') switchView('account-password-view');
+    else if(viewId === 'account-picture-view') switchView('account-picture-view');
+}
+
+function filterSidebarMenu() {
+    let filter = document.getElementById('liveSearchInput').value.toLowerCase();
+    let ul = document.getElementById('sidebarMenuList');
+    let li = ul.getElementsByTagName('li');
+    for (let i = 0; i < li.length; i++) {
+        let button = li[i].getElementsByTagName('button')[0];
+        if (button) {
+            let txtValue = button.textContent || button.innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
     }
 }
 
-function saveSpecificNote(keyId) {
-    let val = document.getElementById(keyId).value;
-    localStorage.setItem(keyId, val);
+// Live Clock & Countdown
+setInterval(() => {
+    let now = new Date();
+    let clockEl = document.getElementById('liveClockDisplay');
+    let dateEl = document.getElementById('liveDateDisplay');
+    if(clockEl) {
+        clockEl.innerText = now.toLocaleTimeString('bn-BD');
+    }
+    if(dateEl) {
+        dateEl.innerText = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    let examDate = new Date('2026-06-15T09:00:00');
+    let diff = examDate - now;
+    let countdownEl = document.getElementById('examCountdownDisplay');
+    if(countdownEl) {
+        if(diff > 0) {
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            let mins = Math.floor((diff / 1000 / 60) % 60);
+            countdownEl.innerText = `${days} দিন ${hours} ঘণ্টা ${mins} মিনিট বাকি`;
+        } else {
+            countdownEl.innerText = "পরীক্ষা শুরু হয়ে গেছে!";
+        }
+    }
+}, 1000);
+
+// Study Progress Tracker
+const subjectsListFull = [
+    "১. বাংলা ১ম পত্র", "২. বাংলা ২য় পত্র", "৩. ইংরেজি ১ম পত্র", "৪. ইংরেজি ২য় পত্র", "৫. গণিত",
+    "৬. উচ্চতর গণিত", "৭. পদার্থবিজ্ঞান", "৮. রসায়ন", "৯. জীববিজ্ঞান", "১০. বাংলাদেশ ও বিশ্বপরিচয়",
+    "১১. ধর্ম ও নৈতিক শিক্ষা", "১২. তথ্য ও যোগাযোগ প্রযুক্তি", "১৩. ইতিহাস ও বিশ্বসভ্যতা", "১৪. ভূগোল ও পরিবেশ",
+    "১৫. পৌরনীতি ও নাগরিকতা", "১৬. অর্থনীতি", "১৭. হিসাববিজ্ঞান", "১৮. ফিন্যান্স ও ব্যাংকিং", "১৯. ব্যবসায় উদ্যোগ", "২০. কৃষি শিক্ষা"
+];
+
+function renderStudyProgressList() {
+    let listContainer = document.getElementById('studyProgressList');
+    if(!listContainer) return;
+    listContainer.innerHTML = "";
+
+    subjectsListFull.forEach((sub, idx) => {
+        let isChecked = localStorage.getItem('progress_sub_' + idx) === 'true';
+        let row = document.createElement('label');
+        row.style.cssText = "display: flex; align-items: center; gap: 10px; font-size: 0.95rem; font-weight: 600; cursor: pointer; background: var(--glass-card); padding: 10px; border-radius: 8px; border: 1px solid var(--glass-border);";
+        row.innerHTML = `
+            <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="saveProgress(${idx}, this)" style="accent-color: #10b981; transform: scale(1.2);">
+            <span>${sub}</span>
+        `;
+        listContainer.appendChild(row);
+    });
+}
+
+function saveProgress(idx, checkbox) {
+    localStorage.setItem('progress_sub_' + idx, checkbox.checked);
+    playSound();
 }
 
 function resetPortal() {
-    if (confirm("আপনি কি সমস্ত ডেটা রিসেট করতে চান?")) {
+    if(confirm("সব ডেটা রিসেট করতে চাও?")) {
         localStorage.clear();
         location.reload();
     }
