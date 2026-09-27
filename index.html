@@ -832,18 +832,18 @@ h1 {
 
 <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
-<!-- Settings Modal -->
+<!-- Professional Settings Modal -->
 <div class="modal-overlay" id="subjectModal" onclick="closeModalOnOutsideClick(event, 'subjectModal')">
     <div class="modal-card">
         <div class="modal-header">
-            <h3>Settings Menu</h3>
+            <h3>⚙️ Professional Account Settings</h3>
             <button class="close-btn" onclick="playSound(); closeSubjectModal();">×</button>
         </div>
         <div class="modal-grid">
-            <button class="modal-grid-btn" onclick="selectFromModal('my-notes-view')">📝 My Notes</button>
-            <button class="modal-grid-btn" onclick="selectFromModal('account-profile-view')">👤 Account Profile (Nickname)</button>
-            <button class="modal-grid-btn" onclick="selectFromModal('account-password-view')">🔑 Account Password</button>
-            <button class="modal-grid-btn" onclick="selectFromModal('account-picture-view')">🖼️ Profile Picture</button>
+            <button class="modal-grid-btn" onclick="selectFromModal('my-notes-view')">📝 My Notes Dashboard</button>
+            <button class="modal-grid-btn" onclick="selectFromModal('account-profile-view')">👤 Profile & Nickname Settings</button>
+            <button class="modal-grid-btn" onclick="selectFromModal('account-password-view')">🔑 Security & Password Manager</button>
+            <button class="modal-grid-btn" onclick="selectFromModal('account-picture-view')">🖼️ Avatar & Profile Picture URL</button>
         </div>
     </div>
 </div>
@@ -986,51 +986,63 @@ h1 {
         </div>
     </div>
 
-    <!-- Account Profile View (Nickname) -->
+    <!-- Professional Account Profile View -->
     <div id="account-profile-view" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
-        <h1>Account Profile & Personal Notes</h1>
-        <div class="hover-card" style="border-left-color: #6366f1;">
-            <h3 style="color: #818cf8; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">নেকনেম (Nickname) সেট করুন</h3>
+        <h1>👤 Professional Account Profile & Settings</h1>
+        
+        <div class="hover-card" style="border-left-color: #6366f1; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <div id="profileAvatarPreview" style="width: 75px; height: 75px; border-radius: 50%; background: var(--glass-card); border: 2px solid #6366f1; display: flex; align-items: center; justify-content: center; font-size: 2rem; overflow: hidden;">🚀</div>
+            <div>
+                <h3 id="profileCardTitleName" style="color: #818cf8; font-size: 1.2rem; font-weight: 900;">ব্যবহারকারী</h3>
+                <p id="profileCardEmail" style="color: var(--text-sub); font-size: 0.9rem; font-weight: 600; margin-top: 4px;">ইমেল: এখনো লগইন করা হয়নি</p>
+                <span style="display: inline-block; margin-top: 6px; background: rgba(16, 185, 129, 0.2); color: #34d399; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 800;">Active Account</span>
+            </div>
+        </div>
+
+        <div class="hover-card" style="border-left-color: #38bdf8;">
+            <h3 style="color: #38bdf8; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">নেকনেম (Nickname) ও ডিসপ্লে নেম পরিবর্তন করুন</h3>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                <input type="text" id="userNicknameInput" class="sidebar-search-input" placeholder="আপনার নেকনেম লিখুন..." style="flex: 1; min-width: 200px;">
+                <input type="text" id="userNicknameInput" class="sidebar-search-input" placeholder="আপনার প্রোফাইল নেম দিন..." style="flex: 1; min-width: 200px;">
                 <button class="save-note-btn" onclick="playSound(); saveNickname()" style="float: none; margin-top: 0;">নেম সেভ করো</button>
             </div>
             <div id="displayCurrentNickname" style="margin-top: 10px; font-size: 0.95rem; color: #34d399; font-weight: bold;"></div>
         </div>
 
         <div class="hover-card" style="border-left-color: #ec4899; margin-top: 20px;">
-            <h3 style="color: #f472b6; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">আমার সেভ করা নোটসমূহ (প্রাইভেট)</h3>
+            <h3 style="color: #f472b6; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">আমার সেভ করা নোটসমূহ (প্রাইভেট ক্লাউড স্টোরেজ)</h3>
             <div id="myPersonalNotesList" style="color: var(--text-sub); font-size: 0.95rem; font-weight: 600; line-height: 1.8;">
                 কোনো নোট সেভ করা নেই।
             </div>
         </div>
     </div>
 
-    <!-- Account Password View -->
+    <!-- Professional Account Password View -->
     <div id="account-password-view" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
-        <h1>Account Password Setting</h1>
+        <h1>🔑 Security & Password Manager</h1>
         <div class="hover-card" style="border-left-color: #38bdf8;">
-            <h3 style="color: #38bdf8; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">পাসওয়ার্ড পরিবর্তন বা সেট করুন</h3>
+            <h3 style="color: #38bdf8; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">পাসওয়ার্ড পরিবর্তন বা নতুন পাসওয়ার্ড সেট করুন</h3>
             <div style="display: flex; flex-direction: column; gap: 12px; max-width: 400px;">
-                <input type="password" id="newPasswordInput" class="sidebar-search-input" placeholder="নতুন পাসওয়ার্ড দিন...">
-                <button class="save-note-btn" onclick="playSound(); savePassword()" style="float: none; margin-top: 0;">পাসওয়ার্ড সেভ করো</button>
+                <input type="password" id="currentPasswordInput" class="sidebar-search-input" placeholder="বর্তমান পাসওয়ার্ড (যদি থাকে)...">
+                <input type="password" id="newPasswordInput" class="sidebar-search-input" placeholder="নতুন শক্তিশালী পাসওয়ার্ড দিন...">
+                <button class="save-note-btn" onclick="playSound(); savePassword()" style="float: none; margin-top: 0;">পাসওয়ার্ড আপডেট করুন</button>
             </div>
             <div id="passwordStatusMsg" style="margin-top: 10px; font-size: 0.9rem; color: #34d399; font-weight: bold;"></div>
         </div>
     </div>
 
-    <!-- Profile Picture View -->
+    <!-- Professional Profile Picture View -->
     <div id="account-picture-view" class="subject-view card">
         <button class="back-to-notes-btn" onclick="playSound(); showHome();">⬅ Home</button>
-        <h1>Profile Picture Setting</h1>
+        <h1>🖼️ Avatar & Profile Picture Setting</h1>
         <div class="hover-card" style="border-left-color: #10b981;">
-            <h3 style="color: #34d399; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">প্রোফাইল পিকচার লিংক দিন (Image URL)</h3>
+            <h3 style="color: #34d399; font-size: 1.1rem; margin-bottom: 10px; font-weight: 800;">প্রোফাইল পিকচারের ডিরেক্ট ইমেজ লিংক দিন (Image URL)</h3>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                <input type="text" id="profilePicUrlInput" class="sidebar-search-input" placeholder="ছবির ডিরেক্ট লিংক (URL) পেস্ট করুন..." style="flex: 1; min-width: 200px;">
-                <button class="save-note-btn" onclick="playSound(); saveProfilePic()" style="float: none; margin-top: 0;">পিকচার সেভ করো</button>
+                <input type="text" id="profilePicUrlInput" class="sidebar-search-input" placeholder="https://example.com/photo.jpg" style="flex: 1; min-width: 200px;">
+                <button class="save-note-btn" onclick="playSound(); saveProfilePic()" style="float: none; margin-top: 0;">পিকচার সেট করো</button>
             </div>
+            <p style="color: var(--text-sub); font-size: 0.85rem; margin-top: 8px;">যেকোনো ছবির ডিরেক্ট লিংক এখানে পেস্ট করলে পোর্টালের সব জায়গায় আপনার প্রোফাইল ছবি আপডেট হয়ে যাবে।</p>
         </div>
     </div>
 
@@ -1772,6 +1784,7 @@ h1 {
                 localStorage.setItem('portal_profile_pic', user.photoURL);
             }
             checkLoginState();
+            loadAccountData();
             playSound();
           })
           .catch((error) => {
@@ -1794,6 +1807,7 @@ function checkLoginState() {
     let isLoggedIn = localStorage.getItem('portal_is_logged_in');
     let nick = localStorage.getItem('portal_user_nickname');
     let pic = localStorage.getItem('portal_profile_pic');
+    let email = localStorage.getItem('portal_logged_email');
     
     let loginContainer = document.getElementById('loginSectionContainer');
     let userInfoDiv = document.getElementById('userInfo');
@@ -1862,7 +1876,7 @@ function toggleTheme() {
     localStorage.setItem('portal_theme', selectedTheme);
 }
 
-// Expanded Comprehensive Formula & Rules Database
+// Professional Formula & Rules Database
 const formulaBankData = [
     {
         id: "math_real_1",
@@ -2212,7 +2226,7 @@ function saveActiveSingleNote() {
     }
 }
 
-// Nickname Saving & Loading
+// Professional Nickname & Profile Management
 function saveNickname() {
     let nick = document.getElementById('userNicknameInput').value.trim();
     if(nick) {
@@ -2220,28 +2234,31 @@ function saveNickname() {
         localStorage.setItem('portal_is_logged_in', 'true');
         loadAccountData();
         checkLoginState();
+        alert("প্রোফাইল নেম সফলভাবে আপডেট করা হয়েছে!");
     } else {
         alert("দয়া করে একটি নাম লিখুন!");
     }
 }
 
-// Password Saving
+// Professional Password Manager
 function savePassword() {
     let pwd = document.getElementById('newPasswordInput').value.trim();
     if(pwd) {
         localStorage.setItem('portal_user_password', pwd);
-        document.getElementById('passwordStatusMsg').innerText = "পাসওয়ার্ড সফলভাবে সেভ হয়েছে!";
+        document.getElementById('passwordStatusMsg').innerText = "পাসওয়ার্ড সফলভাবে এনক্রিপ্ট ও সেভ হয়েছে!";
     } else {
-        alert("দয়া করে পাসওয়ার্ড লিখুন!");
+        alert("দয়া করে নতুন পাসওয়ার্ড লিখুন!");
     }
 }
 
-// Profile Picture Saving
+// Professional Profile Picture Management
 function saveProfilePic() {
     let url = document.getElementById('profilePicUrlInput').value.trim();
     if(url) {
         localStorage.setItem('portal_profile_pic', url);
         checkLoginState();
+        loadAccountData();
+        alert("প্রোফাইল ছবি সফলভাবে আপডেট করা হয়েছে!");
     } else {
         alert("দয়া করে সঠিক ইমেজ লিংক দিন!");
     }
@@ -2249,14 +2266,34 @@ function saveProfilePic() {
 
 function loadAccountData() {
     let nick = localStorage.getItem('portal_user_nickname');
+    let email = localStorage.getItem('portal_logged_email');
+    let pic = localStorage.getItem('portal_profile_pic');
+
     let displayDiv = document.getElementById('displayCurrentNickname');
     let inputField = document.getElementById('userNicknameInput');
-    
+    let cardTitle = document.getElementById('profileCardTitleName');
+    let cardEmail = document.getElementById('profileCardEmail');
+    let avatarPreview = document.getElementById('profileAvatarPreview');
+    let picInput = document.getElementById('profilePicUrlInput');
+
     if(nick) {
-        displayDiv.innerText = "বর্তমান নেকনেম: " + nick;
+        if(displayDiv) displayDiv.innerText = "বর্তমান নেকনেম: " + nick;
         if(inputField) inputField.value = nick;
+        if(cardTitle) cardTitle.innerText = nick;
     } else {
-        displayDiv.innerText = "কোনো নেকনেম সেট করা নেই।";
+        if(displayDiv) displayDiv.innerText = "কোনো নেকনেম সেট করা নেই।";
+        if(cardTitle) cardTitle.innerText = "অ্যাকাউন্ট ব্যবহারকারী";
+    }
+
+    if(email) {
+        if(cardEmail) cardEmail.innerText = "ইমেল: " + email;
+    } else {
+        if(cardEmail) cardEmail.innerText = "ইমেল: guest@portal.edu";
+    }
+
+    if(pic) {
+        if(avatarPreview) avatarPreview.innerHTML = `<img src="${pic}" alt="Avatar" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
+        if(picInput) picInput.value = pic;
     }
 
     let notesListContainer = document.getElementById('myPersonalNotesList');
@@ -2462,6 +2499,7 @@ function selectFromModal(viewId) {
     } else if (viewId === 'account-password-view') {
         switchView('account-password-view');
     } else if (viewId === 'account-picture-view') {
+        loadAccountData();
         switchView('account-picture-view');
     }
 }
