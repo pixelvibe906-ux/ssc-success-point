@@ -476,13 +476,16 @@ h1 {
     margin-bottom: 10px;
     display: inline-block;
     background: var(--glass-card);
-    padding: 15px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
     border-radius: 50%;
     border: 1px solid var(--glass-border);
     transition: transform 0.4s ease;
+    overflow: hidden;
 }
 @media (min-width: 900px) {
-    .school-logo { font-size: 3rem; padding: 18px; }
+    .school-logo { font-size: 3rem; width: 90px; height: 90px; line-height: 90px; }
 }
 .school-header-box:hover .school-logo {
     transform: rotate(10deg) scale(1.1);
@@ -809,7 +812,7 @@ h1 {
 <audio id="clickSound" src="click.mp3" preload="auto"></audio>
 
 <!-- Top Right Setting Button -->
-<button class="top-right-setting-btn" onclick="playSound(); openSubjectModal();" title="Settings">
+<button class="top-right-setting-btn" onclick="playSound(); openSubjectModal();" title="Settings Menu">
     ⚙️
 </button>
 
@@ -829,7 +832,7 @@ h1 {
 
 <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
-<!-- Settings Modal (Separate Options) -->
+<!-- Settings Modal -->
 <div class="modal-overlay" id="subjectModal" onclick="closeModalOnOutsideClick(event, 'subjectModal')">
     <div class="modal-card">
         <div class="modal-header">
@@ -910,7 +913,7 @@ h1 {
                 <span class="school-badge">সফলতার নতুন দিগন্ত</span>
             </div>
             
-            <!-- Google Login Section (Hidden after login) -->
+            <!-- Google Login Section (Permanently hidden after login) -->
             <div style="margin-top: 15px;" id="loginSectionContainer">
                 <button class="google-login-btn" onclick="loginWithGoogle()">
                     <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.63-.06-1.25-.19-1.84H9v3.49h4.84c-.21 1.12-.86 2.07-1.83 2.71v2.26h2.96c1.73-1.59 2.87-3.93 2.87-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.96-2.26c-.83.56-1.88.9-3.0 0-2.3 0-4.25-1.55-4.95-3.64H1.01v2.33C2.5 15.98 5.48 18 9 18z"/><path fill="#FBBC05" d="M4.05 10.82c-.18-.56-.28-1.16-.28-1.82s.1-1.26.28-1.82V4.85H1.01C.37 6.13 0 7.57 0 9s.37 2.87 1.01 4.15l3.04-2.33z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.51.45 3.44 1.34l2.58-2.58C13.47.89 11.43 0 9 0 5.48 0 2.5 2.02 1.01 4.85l3.04 2.33c.7-2.09 2.65-3.6 4.95-3.6z"/></svg>
@@ -1046,6 +1049,10 @@ h1 {
                 <div style="font-size: 1.8rem; margin-bottom: 8px;">🗓️</div>
                 <h3 style="font-size: 1rem;">রুটিন</h3>
             </div>
+            <div class="notes-subject-card" onclick="playSound(); showStudyProgress();" style="border: 2px solid #10b981;">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">📊</div>
+                <h3 style="font-size: 1rem; color: #34d399;">স্টাডি প্রোগ্রেস ও ট্র্যাকার</h3>
+            </div>
             <div class="notes-subject-card" onclick="playSound(); toggleTheme();">
                 <div style="font-size: 1.8rem; margin-bottom: 8px;">🎨</div>
                 <h3 style="font-size: 1rem;">থিম পরিবর্তন</h3>
@@ -1062,6 +1069,17 @@ h1 {
                 <div style="font-size: 1.8rem; margin-bottom: 8px;">🔄</div>
                 <h3 style="font-size: 1rem;">রিসেট</h3>
             </div>
+        </div>
+    </div>
+
+    <!-- Study Progress & Tracker View -->
+    <div id="study-progress-view" class="subject-view card">
+        <button class="back-to-notes-btn" onclick="playSound(); showOthers();">⬅ Others</button>
+        <h1>স্টাডি প্রোগ্রেস ও ট্র্যাকার (Study Progress)</h1>
+        <p style="color: var(--text-sub); font-size: 0.95rem; font-weight: 600; margin-bottom: 18px;">কোন কোন বিষয় পড়া শেষ হয়েছে, তা এখানে টিক দিয়ে ট্র্যাক করো:</p>
+        <div class="hover-card" style="border-left-color: #10b981;">
+            <h3 style="color: #34d399; font-size: 1.1rem; margin-bottom: 15px; font-weight: 800;">সকল বিষয়ের তালিকা</h3>
+            <div id="studyProgressList" style="display: flex; flex-direction: column; gap: 10px;"></div>
         </div>
     </div>
 
@@ -1754,7 +1772,7 @@ function playSound() {
     }
 }
 
-// Check Login State to hide login button permanently after login
+// Check Login State and update UI seamlessly
 function checkLoginState() {
     let isLoggedIn = localStorage.getItem('portal_is_logged_in');
     let nick = localStorage.getItem('portal_user_nickname');
@@ -1825,6 +1843,63 @@ function toggleTheme() {
     let selectedTheme = themes[currentThemeIndex];
     document.documentElement.setAttribute('data-theme', selectedTheme);
     localStorage.setItem('portal_theme', selectedTheme);
+}
+
+// All 20 Subjects List for Study Tracker
+const studySubjectsList = [
+    { name: "১. বাংলা ১ম পত্র", key: "tracker_bangla1" },
+    { name: "২. বাংলা ২য় পত্র", key: "tracker_bangla2" },
+    { name: "৩. ইংরেজি ১ম পত্র", key: "tracker_english1" },
+    { name: "৪. ইংরেজি ২য় পত্র", key: "tracker_english2" },
+    { name: "৫. গণিত", key: "tracker_math" },
+    { name: "৬. উচ্চতর গণিত", key: "tracker_higher_math" },
+    { name: "৭. পদার্থবিজ্ঞান", key: "tracker_physics" },
+    { name: "৮. রসায়ন", key: "tracker_chemistry" },
+    { name: "৯. জীববিজ্ঞান", key: "tracker_biology" },
+    { name: "১০. বাংলাদেশ ও বিশ্বপরিচয়", key: "tracker_bgs" },
+    { name: "১১. ধর্ম ও নৈতিক শিক্ষা", key: "tracker_islam" },
+    { name: "১২. তথ্য ও যোগাযোগ প্রযুক্তি", key: "tracker_ict" },
+    { name: "১৩. ইতিহাস ও বিশ্বসভ্যতা", key: "tracker_history" },
+    { name: "১৪. ভূগোল ও পরিবেশ", key: "tracker_geography" },
+    { name: "১৫. পৌরনীতি ও নাগরিকতা", key: "tracker_civics" },
+    { name: "১৬. অর্থনীতি", key: "tracker_economics" },
+    { name: "১৭. হিসাববিজ্ঞান", key: "tracker_accounting" },
+    { name: "১৮. ফিন্যান্স ও ব্যাংকিং", key: "tracker_finance" },
+    { name: "১৯. ব্যবসায় উদ্যোগ", key: "tracker_business" },
+    { name: "২০. কৃষি শিক্ষা", key: "tracker_agriculture" }
+];
+
+function renderStudyProgressTracker() {
+    const container = document.getElementById('studyProgressList');
+    if (!container) return;
+    container.innerHTML = "";
+
+    studySubjectsList.forEach(sub => {
+        let isChecked = localStorage.getItem(sub.key) === 'true';
+        let div = document.createElement('div');
+        div.style.cssText = "display: flex; align-items: center; justify-content: space-between; background: var(--glass-card); padding: 12px 15px; border-radius: 10px; border: 1px solid var(--glass-border);";
+        div.innerHTML = `
+            <span style="font-size: 0.98rem; font-weight: 700; color: var(--text-main);">${sub.name}</span>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="saveStudyProgress('${sub.key}', this)" style="accent-color: #10b981; transform: scale(1.3);">
+                <span style="font-size: 0.88rem; font-weight: 800; color: ${isChecked ? '#34d399' : '#ef4444'};">${isChecked ? 'পড়া শেষ' : 'বাকি আছে'}</span>
+            </label>
+        `;
+        container.appendChild(div);
+    });
+}
+
+function saveStudyProgress(key, checkbox) {
+    localStorage.setItem(key, checkbox.checked);
+    let span = checkbox.nextElementSibling;
+    if (checkbox.checked) {
+        span.style.color = "#34d399";
+        span.innerText = "পড়া শেষ";
+    } else {
+        span.style.color = "#ef4444";
+        span.innerText = "বাকি আছে";
+    }
+    playSound();
 }
 
 // Bangla Prose & Poetry
@@ -1940,7 +2015,6 @@ function saveActiveSingleNote() {
     const textarea = document.getElementById('singleNoteTextarea');
     if (activeSingleNoteKey) {
         localStorage.setItem(activeSingleNoteKey, textarea.value);
-        alert("নোট সফলভাবে সেভ করা হয়েছে!");
     }
 }
 
@@ -1949,7 +2023,7 @@ function saveNickname() {
     let nick = document.getElementById('userNicknameInput').value.trim();
     if(nick) {
         localStorage.setItem('portal_user_nickname', nick);
-        alert("নেকনেম সফলভাবে সেভ করা হয়েছে!");
+        localStorage.setItem('portal_is_logged_in', 'true');
         loadAccountData();
         checkLoginState();
     } else {
@@ -1962,8 +2036,7 @@ function savePassword() {
     let pwd = document.getElementById('newPasswordInput').value.trim();
     if(pwd) {
         localStorage.setItem('portal_user_password', pwd);
-        document.getElementById('passwordStatusMsg').innerText = "পাসওয়ার্ড সফলভাবে সেট করা হয়েছে!";
-        alert("পাসওয়ার্ড সেভ হয়েছে!");
+        document.getElementById('passwordStatusMsg').innerText = "পাসওয়ার্ড সফলভাবে সেভ হয়েছে!";
     } else {
         alert("দয়া করে পাসওয়ার্ড লিখুন!");
     }
@@ -1974,7 +2047,6 @@ function saveProfilePic() {
     let url = document.getElementById('profilePicUrlInput').value.trim();
     if(url) {
         localStorage.setItem('portal_profile_pic', url);
-        alert("প্রোফাইল পিকচার আপডেট হয়েছে!");
         checkLoginState();
     } else {
         alert("দয়া করে সঠিক ইমেজ লিংক দিন!");
@@ -2042,6 +2114,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     renderBangla1Cards();
     renderAttendanceTable();
+    renderStudyProgressTracker();
     loadAccountData();
     checkLoginState();
     
@@ -2103,6 +2176,10 @@ function showSubjectNotes(sectionId) {
 
 function showAttendance() {
     switchView('attendance-view');
+}
+
+function showStudyProgress() {
+    switchView('study-progress-view');
 }
 
 function showClockCountdown() {
@@ -2198,7 +2275,6 @@ function selectFromModal(viewId) {
 function saveSpecificNote(keyId) {
     let val = document.getElementById(keyId).value;
     localStorage.setItem(keyId, val);
-    alert("নোট সফলভাবে সেভ করা হয়েছে!");
 }
 
 function resetPortal() {
